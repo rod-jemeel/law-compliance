@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/hooks/hooks";
+import { useSelector } from "react-redux";
 import { dashboardActions } from "./_redux/dashboard-slice";
 import { loadDashboardState } from "./_redux/dashboard-storage";
 import DashboardHeader from "./_sections/dashboard-header";
@@ -10,21 +11,20 @@ import SummarySection from "./_sections/summary-section";
 import ContentGrid from "./_sections/content-grid";
 import ChecklistSection from "./_sections/checklist-section";
 import { loadChecklistState } from "../checklist/_redux/checklist-storage";
-import { authService } from "../auth/_services/auth-service";
 import { Button } from "@/components/ui/button";
+import { RootState } from "@/store";
 
 export default function Dashboard() {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Get auth state from Redux
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
 
   // Check if user is logged in
   useEffect(() => {
-    const loggedIn = authService.isLoggedIn();
-    setIsLoggedIn(loggedIn);
-
-    if (!loggedIn) {
+    if (!isLoggedIn) {
       // Redirect to login page if not logged in
       setTimeout(() => {
         router.push("/auth/login");
@@ -32,7 +32,7 @@ export default function Dashboard() {
     } else {
       setIsLoading(false);
     }
-  }, [router]);
+  }, [isLoggedIn, router]);
 
   // Load dashboard state from local storage on page load
   useEffect(() => {

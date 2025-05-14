@@ -68,8 +68,8 @@ export default function PricingPage() {
               </Card>
               <Card className="border-2 border-primary">
                 <CardHeader>
-                  <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground mb-2">
-                    Most Popular
+                  <div className="inline-block rounded-lg text-[#008DDE] bg-primary  py-1 text-sm text-primary-foreground mb-2">
+                    * Most Popular
                   </div>
                   <CardTitle>Professional</CardTitle>
                   <div className="flex items-baseline gap-1">

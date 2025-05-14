@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,10 +17,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ComplianceLogo } from "../../_components/logo";
-import { authService } from "../_services/auth-service";
+import { login } from "../_redux/auth-slice";
 
 export default function SignupPage() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +34,7 @@ export default function SignupPage() {
 
     // Simple signup simulation - in a real app this would call an API
     setTimeout(() => {
-      authService.login();
+      dispatch(login());
       router.push("/dashboard");
       setIsLoading(false);
     }, 1000);
@@ -50,7 +52,7 @@ export default function SignupPage() {
               Create an account
             </CardTitle>
             <CardDescription className="text-center">
-              Enter your information to create your BD Compliance account
+              Enter your information to create your BP Compliance account
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">

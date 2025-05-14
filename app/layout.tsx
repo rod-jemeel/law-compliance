@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./_sections/providers";
 import Motion from "./_sections/motion";
-import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "./_sections/navbar";
 import Footer from "./_sections/footer";
 
@@ -14,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "BD Compliance",
+  title: "BP Compliance",
   description: "Business Permits and Compliance Management System",
 };
 
@@ -30,18 +29,11 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} antialiased`}>
         <Providers>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            <div className="py-4 min-h-screen w-full">
-              <Motion>{children}</Motion>
-            </div>
-            <Footer />
-          </ThemeProvider>
+          <Navbar />
+          <div className="py-4 min-h-screen w-full">
+            <Motion>{children}</Motion>
+          </div>
+          <Footer />
         </Providers>
       </body>
     </html>

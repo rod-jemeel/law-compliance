@@ -1,40 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useSelector, useDispatch } from "react-redux";
 import { Bell, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ComplianceLogo } from "../_components/logo";
-import { authService } from "../auth/_services/auth-service";
+import { RootState } from "@/store";
+import { logout } from "../auth/_redux/auth-slice";
 
 export default function Navbar() {
+  const router = useRouter();
   const pathname = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const dispatch = useDispatch();
+
+  // Get login state from Redux
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
 
   // Check if we're in auth pages to hide the navbar
   const isAuthPage = pathname?.startsWith("/auth");
 
-  // Update login state from localStorage on client side
-  useEffect(() => {
-    setIsLoggedIn(authService.isLoggedIn());
-
-    // Setup listener for storage changes to update state across tabs/windows
-    const handleStorageChange = () => {
-      setIsLoggedIn(authService.isLoggedIn());
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
   // Handle logout
   const handleLogout = () => {
-    authService.logout();
-    setIsLoggedIn(false);
-    window.location.href = "/";
+    dispatch(logout());
+    router.push("/");
   };
 
   // Return null if we're in auth pages
@@ -48,17 +37,30 @@ export default function Navbar() {
         <ComplianceLogo />
 
         <nav className="hidden md:flex gap-6">
+          <Link
+            href="/"
+            className={`text-sm font-medium ${
+              pathname === "/home" ? "text-[#008DDE]" : "text-black"
+            } hover:text-primary`}
+          >
+            Home
+          </Link>
+
           {isLoggedIn ? (
             <>
               <Link
                 href="/dashboard"
-                className="text-sm font-medium hover:text-primary"
+                className={`text-sm font-medium ${
+                  pathname === "/dashboard" ? "text-[#008DDE]" : "text-black"
+                } hover:text-primary`}
               >
                 Dashboard
               </Link>
               <Link
                 href="/checklist"
-                className="text-sm font-medium hover:text-primary"
+                className={`text-sm font-medium ${
+                  pathname === "/checklist" ? "text-[#008DDE]" : "text-black"
+                } hover:text-primary`}
               >
                 Checklist
               </Link>
@@ -68,15 +70,27 @@ export default function Navbar() {
           {/* These links are always visible */}
           <Link
             href="/requirements"
-            className="text-sm font-medium hover:text-primary"
+            className={`text-sm font-medium ${
+              pathname === "/requirements" ? "text-[#008DDE]" : "text-black"
+            } hover:text-primary`}
           >
             Requirements
           </Link>
           <Link
             href="/resources"
-            className="text-sm font-medium hover:text-primary"
+            className={`text-sm font-medium ${
+              pathname === "/resources" ? "text-[#008DDE]" : "text-black"
+            } hover:text-primary`}
           >
             Resources
+          </Link>
+          <Link
+            href="/pricing"
+            className={`text-sm font-medium ${
+              pathname === "/pricing" ? "text-[#008DDE]" : "text-black"
+            } hover:text-primary`}
+          >
+            Pricing
           </Link>
         </nav>
 

@@ -3,6 +3,7 @@ import rootSlice from "./app/_redux/root-slice";
 import homeSlice from "./app/home/_redux/home-slice";
 import dashboardSlice from "./app/dashboard/_redux/dashboard-slice";
 import checklistReducer from "./app/checklist/_redux/checklist-slice";
+import authReducer from "./app/auth/_redux/auth-slice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     homeState: homeSlice,
     dashboardState: dashboardSlice,
     checklist: checklistReducer,
+    auth: authReducer,
   },
 });
 
