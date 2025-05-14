@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import { FileCheck2 } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,18 +16,34 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { ComplianceLogo } from "../../_components/logo";
+import { authService } from "../_services/auth-service";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Simple login simulation - in a real app this would call an API
+    setTimeout(() => {
+      authService.login();
+      router.push("/dashboard");
+      setIsLoading(false);
+    }, 1000);
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       <div className="flex flex-1 items-center justify-center py-12">
         <Card className="mx-auto max-w-md w-full">
           <CardHeader className="space-y-1">
             <div className="flex items-center justify-center mb-6">
-              <div className="flex items-center gap-2 font-bold text-xl">
-                <FileCheck2 className="h-6 w-6 text-primary" />
-                <span>PermitTracker</span>
-              </div>
+              <ComplianceLogo />
             </div>
             <CardTitle className="text-2xl font-bold text-center">
               Sign in to your account
@@ -33,34 +53,50 @@ export default function LoginPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="name@example.com" />
-            </div>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
-                <Link
-                  href="/auth/forgot-password"
-                  className="text-sm text-primary hover:underline"
-                >
-                  Forgot password?
-                </Link>
+            <form onSubmit={handleLogin}>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <Label htmlFor="password">Password</Label>
+                    <Link
+                      href="/auth/forgot-password"
+                      className="text-sm text-primary hover:underline"
+                    >
+                      Forgot password?
+                    </Link>
+                  </div>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="flex items-center space-x-2 pt-2">
+                  <Checkbox id="remember" />
+                  <Label htmlFor="remember" className="text-sm">
+                    Remember me
+                  </Label>
+                </div>
+                <Button type="submit" className="w-full" disabled={isLoading}>
+                  {isLoading ? "Signing in..." : "Sign In"}
+                </Button>
               </div>
-              <Input id="password" type="password" />
-            </div>
-            <div className="flex items-center space-x-2">
-              <Checkbox id="remember" />
-              <label
-                htmlFor="remember"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              >
-                Remember me
-              </label>
-            </div>
+            </form>
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
-            <Button className="w-full">Sign In</Button>
             <div className="text-center text-sm">
               Don&apos;t have an account?{" "}
               <Link

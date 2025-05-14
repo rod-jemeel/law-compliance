@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/hooks/hooks";
 import { dashboardActions } from "./_redux/dashboard-slice";
 import { loadDashboardState } from "./_redux/dashboard-storage";
@@ -9,11 +10,34 @@ import SummarySection from "./_sections/summary-section";
 import ContentGrid from "./_sections/content-grid";
 import ChecklistSection from "./_sections/checklist-section";
 import { loadChecklistState } from "../checklist/_redux/checklist-storage";
+import { authService } from "../auth/_services/auth-service";
+import { Button } from "@/components/ui/button";
 
 export default function Dashboard() {
+  const router = useRouter();
   const dispatch = useAppDispatch();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Check if user is logged in
+  useEffect(() => {
+    const loggedIn = authService.isLoggedIn();
+    setIsLoggedIn(loggedIn);
+
+    if (!loggedIn) {
+      // Redirect to login page if not logged in
+      setTimeout(() => {
+        router.push("/auth/login");
+      }, 100);
+    } else {
+      setIsLoading(false);
+    }
+  }, [router]);
+
   // Load dashboard state from local storage on page load
   useEffect(() => {
+    if (!isLoggedIn) return;
+
     const storedState = loadDashboardState();
     if (storedState) {
       dispatch(dashboardActions.loadDashboardState(storedState));
@@ -26,7 +50,35 @@ export default function Dashboard() {
         dashboardActions.syncComplianceWithChecklist({ checklistState })
       );
     }
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
+
+  // Show login prompt if not logged in
+  if (!isLoggedIn) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold mb-4">Login Required</h2>
+          <p className="text-muted-foreground mb-6">
+            You need to be logged in to access the dashboard.
+          </p>
+          <Button onClick={() => router.push("/auth/login")}>
+            Go to Login
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold mb-4">Loading Dashboard...</h2>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen flex-col">

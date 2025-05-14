@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChecklistTabs } from "./_components";
@@ -11,6 +13,7 @@ import {
   RenewalDocumentsSection,
   PenaltyCalculatorSection,
 } from "./_sections";
+import { authService } from "../auth/_services/auth-service";
 
 // Client Components wrapper
 function ChecklistContent() {
@@ -65,6 +68,53 @@ function ChecklistContent() {
 
 // Page Component with Provider
 export default function Checklist() {
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Check if user is logged in
+  useEffect(() => {
+    const loggedIn = authService.isLoggedIn();
+    setIsLoggedIn(loggedIn);
+
+    if (!loggedIn) {
+      // Redirect to login page if not logged in
+      setTimeout(() => {
+        router.push("/auth/login");
+      }, 100);
+    } else {
+      setIsLoading(false);
+    }
+  }, [router]);
+
+  // Show login prompt if not logged in
+  if (!isLoggedIn) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold mb-4">Login Required</h2>
+          <p className="text-muted-foreground mb-6">
+            You need to be logged in to access the compliance checklists.
+          </p>
+          <Button onClick={() => router.push("/auth/login")}>
+            Go to Login
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold mb-4">Loading Checklists...</h2>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <ChecklistProvider>
       <ChecklistContent />
