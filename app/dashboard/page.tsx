@@ -8,6 +8,7 @@ import DashboardHeader from "./_sections/dashboard-header";
 import SummarySection from "./_sections/summary-section";
 import ContentGrid from "./_sections/content-grid";
 import ChecklistSection from "./_sections/checklist-section";
+import { loadChecklistState } from "../checklist/_redux/checklist-storage";
 
 export default function Dashboard() {
   const dispatch = useAppDispatch();
@@ -19,9 +20,6 @@ export default function Dashboard() {
     }
 
     // Also check for checklist state to sync any recent changes
-    const {
-      loadChecklistState,
-    } = require("../checklist/_redux/checklist-storage");
     const checklistState = loadChecklistState();
     if (checklistState) {
       dispatch(

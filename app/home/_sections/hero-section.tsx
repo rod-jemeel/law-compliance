@@ -49,7 +49,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center justify-between rounded-lg border border-gray-300 p-3">
                 <div className="space-y-0.5">
-                  <h4 className="font-medium">Mayor's Permit Renewal</h4>
+                  <h4 className="font-medium">Mayor&apos;s Permit Renewal</h4>
                   <p className="text-sm text-muted-foreground">
                     Before January 20, 2026
                   </p>

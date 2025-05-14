@@ -6,6 +6,7 @@ import {
   ComplianceItem,
   BusinessComplianceItems,
 } from "./dashboard-state";
+import { ChecklistState } from "../../checklist/_redux/checklist-schema";
 
 export const initialState: DashboardState = {
   businesses: [
@@ -401,7 +402,7 @@ export const dashboardSlice = createSlice({
     },
     syncComplianceWithChecklist(
       state: DashboardState,
-      action: PayloadAction<{ checklistState: any }>
+      action: PayloadAction<{ checklistState: ChecklistState }>
     ) {
       const { checklistState } = action.payload;
       if (!checklistState) return;
@@ -426,15 +427,16 @@ export const dashboardSlice = createSlice({
           localItems: [],
           renewalItems: [],
         };
-      }
-
-      // Helper to convert checklist items to dashboard compliance format
+      } // Helper to convert checklist items to dashboard compliance format
       const convertChecklistToDashboard = (
-        section: Record<string, any>,
+        section: Record<
+          string,
+          { id: string; label: string; checked: boolean; description?: string }
+        >,
         category: string,
         isChecked: boolean = false
       ): ComplianceItem[] => {
-        return Object.entries(section).map(([key, item]) => ({
+        return Object.values(section).map((item) => ({
           id: item.id,
           label: item.label,
           checked: item.checked || isChecked,

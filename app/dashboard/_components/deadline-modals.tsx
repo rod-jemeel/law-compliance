@@ -200,12 +200,10 @@ export function EditDeadlineModal({
   useEffect(() => {
     if (isOpen && deadline) {
       setTitle(deadline.title);
-      setBusinessId(deadline.businessId);
-
-      // Convert the formatted date to YYYY-MM-DD for the input
+      setBusinessId(deadline.businessId); // Convert the formatted date to YYYY-MM-DD for the input
       try {
         setDueDate(formatDateForInput(deadline.dueDate));
-      } catch (error) {
+      } catch {
         // If date parsing fails, set to empty
         setDueDate("");
       }
@@ -336,9 +334,6 @@ export function ViewAllDeadlinesModal({
   const dispatch = useAppDispatch();
   const deadlines = useAppSelector(
     (state: RootState) => state.dashboardState.upcomingDeadlines
-  );
-  const businesses = useAppSelector(
-    (state: RootState) => state.dashboardState.businesses
   );
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);

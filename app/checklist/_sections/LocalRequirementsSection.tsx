@@ -1,5 +1,6 @@
 import { useChecklist } from "../_redux/checklist-context";
 import { ChecklistCard, ChecklistItem } from "../_components";
+import { ChecklistState } from "../_redux/checklist-schema";
 
 export function LocalRequirementsSection() {
   const { state, toggleChecklistItem, saveState } = useChecklist();
@@ -8,9 +9,11 @@ export function LocalRequirementsSection() {
   const handleSave = () => {
     saveState();
   };
-
   const handleToggleAndSave = (section: string, itemKey: string) => {
-    toggleChecklistItem(section as any, itemKey);
+    toggleChecklistItem(
+      section as keyof Omit<ChecklistState, "activeTab" | "penaltyCalculator">,
+      itemKey
+    );
     // Save state immediately to ensure dashboard shows updated state
     setTimeout(() => saveState(), 10);
   };

@@ -53,7 +53,7 @@ export default function DeadlinesSection() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                   <Calendar className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">Mayor's Permit</CardTitle>
+                <CardTitle className="text-xl">Mayor&apos;s Permit</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="px-6 pb-4">

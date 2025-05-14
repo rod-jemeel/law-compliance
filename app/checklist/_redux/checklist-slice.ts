@@ -209,7 +209,7 @@ const checklistSlice = createSlice({
       }>
     ) => {
       const { section, itemKey } = action.payload;
-      // @ts-ignore - We know this structure exists based on our schema
+      // @ts-expect-error - We know this structure exists based on our schema
       const item = state[section][itemKey];
       if (item) {
         item.checked = !item.checked;

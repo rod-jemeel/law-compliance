@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Bell, FileCheck2, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChecklistTabs } from "./_components";
 import { ChecklistProvider, useChecklist } from "./_redux/checklist-context";
@@ -15,12 +14,9 @@ import {
 
 // Client Components wrapper
 function ChecklistContent() {
-  const { state, setActiveTab } = useChecklist();
+  const { state } = useChecklist();
   const { activeTab } = state;
 
-  const handleTabChange = (tab: "new" | "renewal") => {
-    setActiveTab(tab);
-  };
   // Define the content for each tab
   const newBusinessContent = (
     <div className="grid gap-6 md:grid-cols-2 mx-auto">

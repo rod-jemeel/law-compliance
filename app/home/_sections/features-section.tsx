@@ -14,7 +14,7 @@ export default function FeaturesSection() {
             </h2>
             <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Securing and maintaining valid business permits is not just a
-              procedural requirement—it's essential for legal operation in
+              procedural requirement—it&apos;s essential for legal operation in
               Dumaguete City.
             </p>
           </div>
@@ -37,8 +37,9 @@ export default function FeaturesSection() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
+                {" "}
                 Never miss critical renewal dates with automated reminders for
-                Barangay Clearance, Mayor's Permit, and BIR registration.
+                Barangay Clearance, Mayor&apos;s Permit, and BIR registration.
               </p>
             </CardContent>
           </Card>

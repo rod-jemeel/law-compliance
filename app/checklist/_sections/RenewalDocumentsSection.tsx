@@ -1,5 +1,6 @@
 import { useChecklist } from "../_redux/checklist-context";
 import { ChecklistCard, ChecklistItem } from "../_components";
+import { ChecklistState } from "../_redux/checklist-schema";
 
 export function RenewalDocumentsSection() {
   const { state, toggleChecklistItem, saveState } = useChecklist();
@@ -8,9 +9,11 @@ export function RenewalDocumentsSection() {
   const handleSave = () => {
     saveState();
   };
-
-  const handleToggleAndSave = (section: string, itemKey: string) => {
-    toggleChecklistItem(section as any, itemKey);
+  const handleToggleAndSave = (
+    section: keyof Omit<ChecklistState, "activeTab" | "penaltyCalculator">,
+    itemKey: string
+  ) => {
+    toggleChecklistItem(section, itemKey);
     // Save state immediately to ensure dashboard shows updated state
     setTimeout(() => saveState(), 10);
   };

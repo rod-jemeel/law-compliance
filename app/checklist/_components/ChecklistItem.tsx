@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 
 interface ChecklistItemProps {

@@ -7,14 +7,7 @@ import { loadChecklistState } from "../../../app/checklist/_redux/checklist-stor
 import { useAppSelector, useAppDispatch } from "@/hooks/hooks";
 import { RootState } from "@/store";
 import { dashboardActions } from "../_redux/dashboard-slice";
-import {
-  ChecklistItem,
-  ChecklistState,
-} from "../../checklist/_redux/checklist-schema";
-import {
-  ComplianceItem,
-  BusinessComplianceItems,
-} from "../_redux/dashboard-state";
+import { BusinessComplianceItems } from "../_redux/dashboard-state";
 
 interface DisplayItem {
   id: string;

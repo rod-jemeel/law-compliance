@@ -19,9 +19,7 @@ export default function Navbar() {
           >
             Dashboard
           </Link>
-          <Link href="#" className="text-sm font-medium hover:text-primary">
-            Checklists
-          </Link>
+
           <Link href="#" className="text-sm font-medium hover:text-primary">
             Requirements
           </Link>

@@ -9,19 +9,9 @@ import { PenaltyCalculator as PenaltyCalculatorComponent } from "../_components"
 import { useChecklist } from "../_redux/checklist-context";
 
 export function PenaltyCalculatorSection() {
-  const { state, updatePenaltyCalculator, calculatePenalties } = useChecklist();
+  const { state } = useChecklist();
   const { penaltyCalculator } = state;
 
-  const handleUpdateCalculator = (values: {
-    taxAmount?: number;
-    monthsOverdue?: number;
-  }) => {
-    updatePenaltyCalculator(values);
-  };
-
-  const handleCalculate = () => {
-    calculatePenalties();
-  };
   return (
     <Card className="max-w-4xl mx-auto">
       <CardHeader>
