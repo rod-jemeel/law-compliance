@@ -1,18 +1,25 @@
-import { RootState } from './root-state';
-import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from "./root-state";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState: RootState = {
   menuOpen: false,
+  scrolled: false,
 };
 
 export const rootSlice = createSlice({
-  name: 'rootSlice',
+  name: "rootSlice",
   initialState,
   reducers: {
     collapseToggled(state: RootState) {
       return {
         ...state,
         menuOpen: !state.menuOpen,
+      };
+    },
+    setScrolled(state: RootState, action) {
+      return {
+        ...state,
+        scrolled: action.payload,
       };
     },
   },

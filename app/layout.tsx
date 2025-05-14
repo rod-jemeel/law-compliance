@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./_sections/providers";
 import Motion from "./_sections/motion";
+import Navbar from "./_sections/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -38,8 +41,12 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ThemeToggle />
-            <Motion>{children}</Motion>
+            <Navbar />
+            <div className="pt-16 min-h-screen">
+              {" "}
+              {/* Add padding to account for the fixed navbar */}
+              <Motion>{children}</Motion>
+            </div>
           </ThemeProvider>
         </Providers>
       </body>
