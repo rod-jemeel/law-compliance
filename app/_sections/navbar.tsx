@@ -13,7 +13,10 @@ export default function Navbar() {
           <span>PermitTracker</span>
         </div>
         <nav className="hidden md:flex gap-6">
-          <Link href="#" className="text-sm font-medium hover:text-primary">
+          <Link
+            href="/dashboard"
+            className="text-sm font-medium hover:text-primary"
+          >
             Dashboard
           </Link>
           <Link href="#" className="text-sm font-medium hover:text-primary">

@@ -4,7 +4,6 @@ import ChecklistSection from "./_sections/checklist-section";
 import DeadlinesSection from "./_sections/deadlines-section";
 import PenaltiesSection from "./_sections/penalties-section";
 import CTASection from "./_sections/cta-section";
-import FooterSection from "../_sections/footer-section";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
         <PenaltiesSection />
         <CTASection />
       </main>
-      <FooterSection />
     </div>
   );
 }

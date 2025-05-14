@@ -5,6 +5,7 @@ import Providers from "./_sections/providers";
 import Motion from "./_sections/motion";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "./_sections/navbar";
+import Footer from "./_sections/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,7 +28,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={` ${inter.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
         <Providers>
           <ThemeProvider
             attribute="class"
@@ -35,12 +36,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {" "}
-            <Navbar />
-            <div className="pt-16 min-h-screen">
-              {/* Add padding to account for the fixed navbar */}
+            <Navbar />{" "}
+            <div className="py-4 min-h-screen w-full">
               <Motion>{children}</Motion>
             </div>
+            <Footer />
           </ThemeProvider>
         </Providers>
       </body>

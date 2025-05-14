@@ -29,42 +29,44 @@ export default function HeroSection() {
               </Button>{" "}
             </div>
           </div>
-          <div className="flex w-full lg:w-[40%] flex-col justify-center space-y-4 rounded-xl border bg-background p-4 shadow-lg sm:p-6 lg:p-8">
+          <div className="flex w-full lg:w-[40%] flex-col justify-center space-y-4 rounded-xl border border-gray-300 bg-background p-4 shadow-lg sm:p-6 lg:p-8">
             <div className="flex items-center gap-2">
               <Calendar className="h-6 w-6 text-primary" />
               <h3 className="text-xl font-bold">Upcoming Deadlines</h3>
-            </div>
+            </div>{" "}
             <div className="space-y-3">
-              <div className="flex items-center justify-between rounded-lg border p-3">
+              {" "}
+              <div className="flex items-center justify-between rounded-lg border border-gray-300 p-3">
                 <div className="space-y-0.5">
                   <h4 className="font-medium">Barangay Clearance Renewal</h4>
                   <p className="text-sm text-muted-foreground">
                     Before January 20, 2026
                   </p>
                 </div>
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border bg-primary text-primary-foreground">
-                  <span className="text-xs font-bold">67</span>
+                <div className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 bg-primary text-primary-foreground">
+                  <span className="text-xs font-bold">67</span>{" "}
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-lg border p-3">
+              <div className="flex items-center justify-between rounded-lg border border-gray-300 p-3">
                 <div className="space-y-0.5">
                   <h4 className="font-medium">Mayor's Permit Renewal</h4>
                   <p className="text-sm text-muted-foreground">
                     Before January 20, 2026
                   </p>
-                </div>
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border bg-primary text-primary-foreground">
+                </div>{" "}
+                <div className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 bg-primary text-primary-foreground">
                   <span className="text-xs font-bold">67</span>
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-lg border p-3">
+              <div className="flex items-center justify-between rounded-lg border border-gray-300 p-3">
                 <div className="space-y-0.5">
                   <h4 className="font-medium">BIR Annual Registration</h4>
                   <p className="text-sm text-muted-foreground">
+                    {" "}
                     Before January 31, 2026
                   </p>
                 </div>
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border bg-primary text-primary-foreground">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 bg-primary text-primary-foreground">
                   <span className="text-xs font-bold">78</span>
                 </div>
               </div>
