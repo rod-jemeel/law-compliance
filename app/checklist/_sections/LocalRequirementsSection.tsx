@@ -9,6 +9,12 @@ export function LocalRequirementsSection() {
     saveState();
   };
 
+  const handleToggleAndSave = (section: string, itemKey: string) => {
+    toggleChecklistItem(section as any, itemKey);
+    // Save state immediately to ensure dashboard shows updated state
+    setTimeout(() => saveState(), 10);
+  };
+
   return (
     <ChecklistCard
       title="Local Level Requirements (Dumaguete City)"
@@ -21,7 +27,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.barangayClearance.description}
         checked={localRequirements.barangayClearance.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "barangayClearance")
+          handleToggleAndSave("localRequirements", "barangayClearance")
         }
       />
       <ChecklistItem
@@ -30,7 +36,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.taxClearance.description}
         checked={localRequirements.taxClearance.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "taxClearance")
+          handleToggleAndSave("localRequirements", "taxClearance")
         }
       />
       <ChecklistItem
@@ -39,7 +45,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.environmentalPermit.description}
         checked={localRequirements.environmentalPermit.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "environmentalPermit")
+          handleToggleAndSave("localRequirements", "environmentalPermit")
         }
       />
       <ChecklistItem
@@ -48,7 +54,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.zoningClearance.description}
         checked={localRequirements.zoningClearance.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "zoningClearance")
+          handleToggleAndSave("localRequirements", "zoningClearance")
         }
       />
       <ChecklistItem
@@ -57,7 +63,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.sanitaryPermit.description}
         checked={localRequirements.sanitaryPermit.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "sanitaryPermit")
+          handleToggleAndSave("localRequirements", "sanitaryPermit")
         }
       />
       <ChecklistItem
@@ -66,7 +72,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.certificateOfOccupancy.description}
         checked={localRequirements.certificateOfOccupancy.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "certificateOfOccupancy")
+          handleToggleAndSave("localRequirements", "certificateOfOccupancy")
         }
       />
       <ChecklistItem
@@ -75,7 +81,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.fireSafetyInspection.description}
         checked={localRequirements.fireSafetyInspection.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "fireSafetyInspection")
+          handleToggleAndSave("localRequirements", "fireSafetyInspection")
         }
       />
       <ChecklistItem
@@ -84,7 +90,7 @@ export function LocalRequirementsSection() {
         description={localRequirements.mayorsPermit.description}
         checked={localRequirements.mayorsPermit.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("localRequirements", "mayorsPermit")
+          handleToggleAndSave("localRequirements", "mayorsPermit")
         }
       />
     </ChecklistCard>

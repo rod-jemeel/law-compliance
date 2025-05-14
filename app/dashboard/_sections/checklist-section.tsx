@@ -10,7 +10,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import ComplianceChecklist from "../_components/compliance-checklist-new";
+import ComplianceChecklist from "../_components/compliance-checklist";
 
 export default function ChecklistSection() {
   const router = useRouter();

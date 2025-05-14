@@ -48,20 +48,23 @@ export default function DeadlinesSection() {
             </div>
           )}
         </CardContent>
-        <CardFooter className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2">
-          <Button
-            className="w-full"
-            variant="outline"
-            onClick={() => setIsAddModalOpen(true)}
-          >
-            Add Deadline
-          </Button>
-          <Button
-            className="w-full"
-            onClick={() => setIsViewAllModalOpen(true)}
-          >
-            View All Deadlines
-          </Button>
+
+        <CardFooter>
+          <div className="flex lg:flex-row flex-col gap-2">
+            <Button
+              className="w-full"
+              variant="outline"
+              onClick={() => setIsAddModalOpen(true)}
+            >
+              Add Deadline
+            </Button>
+            <Button
+              className="w-full"
+              onClick={() => setIsViewAllModalOpen(true)}
+            >
+              View All Deadlines
+            </Button>
+          </div>
         </CardFooter>
       </Card>
 

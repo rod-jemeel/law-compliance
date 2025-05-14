@@ -11,12 +11,22 @@ import ChecklistSection from "./_sections/checklist-section";
 
 export default function Dashboard() {
   const dispatch = useAppDispatch();
-
   // Load dashboard state from local storage on page load
   useEffect(() => {
     const storedState = loadDashboardState();
     if (storedState) {
       dispatch(dashboardActions.loadDashboardState(storedState));
+    }
+
+    // Also check for checklist state to sync any recent changes
+    const {
+      loadChecklistState,
+    } = require("../checklist/_redux/checklist-storage");
+    const checklistState = loadChecklistState();
+    if (checklistState) {
+      dispatch(
+        dashboardActions.syncComplianceWithChecklist({ checklistState })
+      );
     }
   }, [dispatch]);
 

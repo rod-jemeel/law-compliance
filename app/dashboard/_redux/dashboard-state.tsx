@@ -3,6 +3,7 @@ export interface DashboardState {
   upcomingDeadlines: Deadline[];
   complianceStatus: ComplianceStatus;
   documentStatus: DocumentStatus;
+  complianceItems: Record<string, BusinessComplianceItems>;
 }
 
 export interface Business {
@@ -18,6 +19,20 @@ export interface Deadline {
   businessName: string;
   dueDate: string;
   daysLeft: number;
+}
+
+export interface ComplianceItem {
+  id: string;
+  label: string;
+  checked: boolean;
+  validUntil?: string;
+  category: string;
+}
+
+export interface BusinessComplianceItems {
+  nationalItems: ComplianceItem[];
+  localItems: ComplianceItem[];
+  renewalItems: ComplianceItem[];
 }
 
 export interface ComplianceStatus {

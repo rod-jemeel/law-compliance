@@ -48,25 +48,38 @@ export function ChecklistProvider({ children }: ChecklistProviderProps) {
       dispatch(loadState(savedState));
     }
   }, [dispatch]);
+
   // Helper functions
   const handleSetActiveTab = (tab: "new" | "renewal") => {
     dispatch(setActiveTab(tab));
   };
-
+  
   const handleToggleChecklistItem = (
     section: keyof Omit<ChecklistState, "activeTab" | "penaltyCalculator">,
     itemKey: string
   ) => {
     dispatch(toggleChecklistItem({ section, itemKey }));
 
-    // Also update the dashboard state immediately
+    // Also update the dashboard state immediately after toggling
+    // Map checklist section to dashboard item type
+    const itemTypeMap: Record<
+      string,
+      "nationalItems" | "localItems" | "renewalItems"
+    > = {
+      nationalRequirements: "nationalItems",
+      localRequirements: "localItems",
+      renewalRequirements: "renewalItems",
+      renewalDocuments: "renewalItems",
+    };
+
+    // Sync with dashboard immediately after state update
     setTimeout(() => {
-      // Get the latest state
-      const checklistState = state;
-      // Sync with dashboard
+      // Get the current state after the toggle
+      const currentState = useSelector((state: RootState) => state.checklist);
+      // Send it to the dashboard
       dispatch({
         type: "dashboardSlice/syncComplianceWithChecklist",
-        payload: { checklistState },
+        payload: { checklistState: currentState },
       });
     }, 0);
   };
@@ -77,6 +90,7 @@ export function ChecklistProvider({ children }: ChecklistProviderProps) {
   }) => {
     dispatch(updatePenaltyCalculator(values));
   };
+
   const handleCalculatePenalties = () => {
     dispatch(calculatePenalties());
   };

@@ -9,10 +9,16 @@ export function RenewalRequirementsSection() {
     saveState();
   };
 
+  const handleToggleAndSave = (section: string, itemKey: string) => {
+    toggleChecklistItem(section as any, itemKey);
+    // Save state immediately to ensure dashboard shows updated state
+    setTimeout(() => saveState(), 10);
+  };
+
   return (
     <ChecklistCard
-      title="Annual Renewal Requirements"
-      description="Complete these steps before January 20th each year"
+      title="Renewal Requirements"
+      description="Required steps for business permit renewal"
       onSave={handleSave}
     >
       <ChecklistItem
@@ -21,7 +27,7 @@ export function RenewalRequirementsSection() {
         description={renewalRequirements.barangayClearanceRenewal.description}
         checked={renewalRequirements.barangayClearanceRenewal.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalRequirements", "barangayClearanceRenewal")
+          handleToggleAndSave("renewalRequirements", "barangayClearanceRenewal")
         }
       />
       <ChecklistItem
@@ -30,7 +36,7 @@ export function RenewalRequirementsSection() {
         description={renewalRequirements.taxClearanceRenewal.description}
         checked={renewalRequirements.taxClearanceRenewal.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalRequirements", "taxClearanceRenewal")
+          handleToggleAndSave("renewalRequirements", "taxClearanceRenewal")
         }
       />
       <ChecklistItem
@@ -39,7 +45,7 @@ export function RenewalRequirementsSection() {
         description={renewalRequirements.environmentalPermitRenewal.description}
         checked={renewalRequirements.environmentalPermitRenewal.checked}
         onCheckedChange={() =>
-          toggleChecklistItem(
+          handleToggleAndSave(
             "renewalRequirements",
             "environmentalPermitRenewal"
           )
@@ -51,7 +57,7 @@ export function RenewalRequirementsSection() {
         description={renewalRequirements.annualSafetyInspection.description}
         checked={renewalRequirements.annualSafetyInspection.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalRequirements", "annualSafetyInspection")
+          handleToggleAndSave("renewalRequirements", "annualSafetyInspection")
         }
       />
       <ChecklistItem
@@ -60,7 +66,7 @@ export function RenewalRequirementsSection() {
         description={renewalRequirements.sanitaryPermitRenewal.description}
         checked={renewalRequirements.sanitaryPermitRenewal.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalRequirements", "sanitaryPermitRenewal")
+          handleToggleAndSave("renewalRequirements", "sanitaryPermitRenewal")
         }
       />
       <ChecklistItem
@@ -71,7 +77,7 @@ export function RenewalRequirementsSection() {
         }
         checked={renewalRequirements.fireSafetyInspectionRenewal.checked}
         onCheckedChange={() =>
-          toggleChecklistItem(
+          handleToggleAndSave(
             "renewalRequirements",
             "fireSafetyInspectionRenewal"
           )
@@ -83,7 +89,7 @@ export function RenewalRequirementsSection() {
         description={renewalRequirements.mayorsPermitRenewal.description}
         checked={renewalRequirements.mayorsPermitRenewal.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalRequirements", "mayorsPermitRenewal")
+          handleToggleAndSave("renewalRequirements", "mayorsPermitRenewal")
         }
       />
       <ChecklistItem
@@ -92,7 +98,7 @@ export function RenewalRequirementsSection() {
         description={renewalRequirements.birRegistrationRenewal.description}
         checked={renewalRequirements.birRegistrationRenewal.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalRequirements", "birRegistrationRenewal")
+          handleToggleAndSave("renewalRequirements", "birRegistrationRenewal")
         }
       />
     </ChecklistCard>

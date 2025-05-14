@@ -9,10 +9,16 @@ export function RenewalDocumentsSection() {
     saveState();
   };
 
+  const handleToggleAndSave = (section: string, itemKey: string) => {
+    toggleChecklistItem(section as any, itemKey);
+    // Save state immediately to ensure dashboard shows updated state
+    setTimeout(() => saveState(), 10);
+  };
+
   return (
     <ChecklistCard
       title="Required Documents for Renewal"
-      description="Prepare these documents before starting the renewal process"
+      description="Prepare these documents for business permit renewal"
       onSave={handleSave}
     >
       <ChecklistItem
@@ -21,7 +27,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.previousPermit.description}
         checked={renewalDocuments.previousPermit.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "previousPermit")
+          handleToggleAndSave("renewalDocuments", "previousPermit")
         }
       />
       <ChecklistItem
@@ -30,7 +36,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.incomeTaxReturns.description}
         checked={renewalDocuments.incomeTaxReturns.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "incomeTaxReturns")
+          handleToggleAndSave("renewalDocuments", "incomeTaxReturns")
         }
       />
       <ChecklistItem
@@ -39,7 +45,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.cedula.description}
         checked={renewalDocuments.cedula.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "cedula")
+          handleToggleAndSave("renewalDocuments", "cedula")
         }
       />
       <ChecklistItem
@@ -48,7 +54,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.insurancePolicy.description}
         checked={renewalDocuments.insurancePolicy.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "insurancePolicy")
+          handleToggleAndSave("renewalDocuments", "insurancePolicy")
         }
       />
       <ChecklistItem
@@ -57,7 +63,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.financialStatements.description}
         checked={renewalDocuments.financialStatements.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "financialStatements")
+          handleToggleAndSave("renewalDocuments", "financialStatements")
         }
       />
       <ChecklistItem
@@ -66,7 +72,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.leaseContract.description}
         checked={renewalDocuments.leaseContract.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "leaseContract")
+          handleToggleAndSave("renewalDocuments", "leaseContract")
         }
       />
       <ChecklistItem
@@ -75,7 +81,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.socialSecurityRegistrations.description}
         checked={renewalDocuments.socialSecurityRegistrations.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "socialSecurityRegistrations")
+          handleToggleAndSave("renewalDocuments", "socialSecurityRegistrations")
         }
       />
       <ChecklistItem
@@ -84,7 +90,7 @@ export function RenewalDocumentsSection() {
         description={renewalDocuments.noOperationsAffidavit.description}
         checked={renewalDocuments.noOperationsAffidavit.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("renewalDocuments", "noOperationsAffidavit")
+          handleToggleAndSave("renewalDocuments", "noOperationsAffidavit")
         }
       />
     </ChecklistCard>

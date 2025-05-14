@@ -9,6 +9,12 @@ export function NationalRequirementsSection() {
     saveState();
   };
 
+  const handleToggleAndSave = (section: string, itemKey: string) => {
+    toggleChecklistItem(section as any, itemKey);
+    // Save state immediately to ensure dashboard shows updated state
+    setTimeout(() => saveState(), 10);
+  };
+
   return (
     <ChecklistCard
       title="National Level Requirements"
@@ -21,7 +27,7 @@ export function NationalRequirementsSection() {
         description={nationalRequirements.businessStructure.description}
         checked={nationalRequirements.businessStructure.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("nationalRequirements", "businessStructure")
+          handleToggleAndSave("nationalRequirements", "businessStructure")
         }
       />
       <ChecklistItem
@@ -30,7 +36,7 @@ export function NationalRequirementsSection() {
         description={nationalRequirements.businessNameRegistration.description}
         checked={nationalRequirements.businessNameRegistration.checked}
         onCheckedChange={() =>
-          toggleChecklistItem(
+          handleToggleAndSave(
             "nationalRequirements",
             "businessNameRegistration"
           )
@@ -42,7 +48,7 @@ export function NationalRequirementsSection() {
         description={nationalRequirements.secRegistration.description}
         checked={nationalRequirements.secRegistration.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("nationalRequirements", "secRegistration")
+          handleToggleAndSave("nationalRequirements", "secRegistration")
         }
       />
       <ChecklistItem
@@ -51,7 +57,7 @@ export function NationalRequirementsSection() {
         description={nationalRequirements.tinRegistration.description}
         checked={nationalRequirements.tinRegistration.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("nationalRequirements", "tinRegistration")
+          handleToggleAndSave("nationalRequirements", "tinRegistration")
         }
       />
       <ChecklistItem
@@ -60,7 +66,7 @@ export function NationalRequirementsSection() {
         description={nationalRequirements.birRegistration.description}
         checked={nationalRequirements.birRegistration.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("nationalRequirements", "birRegistration")
+          handleToggleAndSave("nationalRequirements", "birRegistration")
         }
       />
       <ChecklistItem
@@ -69,7 +75,7 @@ export function NationalRequirementsSection() {
         description={nationalRequirements.booksOfAccounts.description}
         checked={nationalRequirements.booksOfAccounts.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("nationalRequirements", "booksOfAccounts")
+          handleToggleAndSave("nationalRequirements", "booksOfAccounts")
         }
       />
       <ChecklistItem
@@ -78,7 +84,7 @@ export function NationalRequirementsSection() {
         description={nationalRequirements.authorityToPrint.description}
         checked={nationalRequirements.authorityToPrint.checked}
         onCheckedChange={() =>
-          toggleChecklistItem("nationalRequirements", "authorityToPrint")
+          handleToggleAndSave("nationalRequirements", "authorityToPrint")
         }
       />
     </ChecklistCard>
