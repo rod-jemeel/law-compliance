@@ -57,8 +57,38 @@ export const dashboardSlice = createSlice({
     addBusiness(state: DashboardState, action: PayloadAction<Business>) {
       state.businesses.push(action.payload);
     },
+    updateBusiness(state: DashboardState, action: PayloadAction<Business>) {
+      const index = state.businesses.findIndex(
+        (b) => b.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.businesses[index] = action.payload;
+      }
+    },
+    removeBusiness(state: DashboardState, action: PayloadAction<string>) {
+      state.businesses = state.businesses.filter(
+        (b) => b.id !== action.payload
+      );
+      // Also remove any deadlines associated with this business
+      state.upcomingDeadlines = state.upcomingDeadlines.filter(
+        (d) => d.businessId !== action.payload
+      );
+    },
     addDeadline(state: DashboardState, action: PayloadAction<Deadline>) {
       state.upcomingDeadlines.push(action.payload);
+    },
+    updateDeadline(state: DashboardState, action: PayloadAction<Deadline>) {
+      const index = state.upcomingDeadlines.findIndex(
+        (d) => d.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.upcomingDeadlines[index] = action.payload;
+      }
+    },
+    removeDeadline(state: DashboardState, action: PayloadAction<string>) {
+      state.upcomingDeadlines = state.upcomingDeadlines.filter(
+        (d) => d.id !== action.payload
+      );
     },
     updateComplianceStatus(
       state: DashboardState,
@@ -74,6 +104,12 @@ export const dashboardSlice = createSlice({
       action: PayloadAction<{ percentage: number; message: string }>
     ) {
       state.documentStatus = action.payload;
+    },
+    loadDashboardState(
+      state: DashboardState,
+      action: PayloadAction<DashboardState>
+    ) {
+      return action.payload;
     },
   },
 });

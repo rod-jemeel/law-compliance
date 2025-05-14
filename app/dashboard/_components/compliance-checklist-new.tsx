@@ -6,10 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { loadChecklistState } from "../../../app/checklist/_redux/checklist-storage";
 import { useAppSelector } from "@/hooks/hooks";
 import { RootState } from "@/store";
-import {
-  ChecklistItem,
-  ChecklistState,
-} from "../../checklist/_redux/checklist-schema";
+import { ChecklistItem as SchemaChecklistItem } from "../../checklist/_redux/checklist-schema";
 
 interface DisplayItem {
   id: string;
@@ -39,7 +36,7 @@ export default function ComplianceChecklist() {
 
       // Helper function to convert checklist section to array of display items
       const convertToDisplayItems = (
-        section: Record<string, ChecklistItem>,
+        section: Record<string, SchemaChecklistItem>,
         category: string
       ): DisplayItem[] => {
         return Object.values(section).map((item) => ({

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import {
   Card,
   CardHeader,
@@ -9,9 +10,11 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import ComplianceChecklist from "../_components/compliance-checklist";
+import ComplianceChecklist from "../_components/compliance-checklist-new";
 
 export default function ChecklistSection() {
+  const router = useRouter();
+
   return (
     <Card>
       <CardHeader>
@@ -24,7 +27,9 @@ export default function ChecklistSection() {
         <ComplianceChecklist />
       </CardContent>
       <CardFooter>
-        <Button className="w-full">View Complete Checklists</Button>
+        <Button className="w-full" onClick={() => router.push("/checklist")}>
+          View Complete Checklists
+        </Button>
       </CardFooter>
     </Card>
   );
