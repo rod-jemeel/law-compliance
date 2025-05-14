@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./_sections/providers";
 import Motion from "./_sections/motion";
-import Navbar from "./_sections/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "./_sections/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,9 +27,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={` ${inter.variable} antialiased`}>
         <Providers>
           <ThemeProvider
             attribute="class"
@@ -41,9 +35,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            {" "}
             <Navbar />
             <div className="pt-16 min-h-screen">
-              {" "}
               {/* Add padding to account for the fixed navbar */}
               <Motion>{children}</Motion>
             </div>

@@ -1,33 +1,34 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+"use client";
+
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function CTASection() {
+export default function CTASection() {
   return (
-    <section className="w-full mt-8 mb-12">
-      <Card className="bg-primary text-primary-foreground">
-        <CardContent className="p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Get Started Today</h2>
-          <p className="mb-6 max-w-2xl mx-auto">
-            Take control of your business compliance requirements. Create your
-            account to access personalized checklists, set up reminders for
-            important deadlines, and store all your important documents
-            securely.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Create Account
+    <section className="w-full py-12 md:py-24 lg:py-32">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        {" "}
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              Ready to Stay Compliant?
+            </h2>
+            <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Create your account today and never worry about missing a business
+              permit deadline again.
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            <Button size="lg">
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-transparent border-white text-white hover:bg-white/10"
-            >
+            <Button variant="outline" size="lg">
               Learn More
             </Button>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </section>
   );
 }
