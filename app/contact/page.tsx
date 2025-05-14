@@ -15,8 +15,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 export default function ContactPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <main className="flex-1 container py-12">
-        <div className="max-w-5xl mx-auto">
+      <main className="flex-1">
+        <div className="container py-12 max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold mb-2">Contact Us</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">

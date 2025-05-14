@@ -11,10 +11,10 @@ import {
 
 export default function PricingPage() {
   return (
-    <div className="flex min-h-screen m-auto flex-col">
+    <div className="flex min-h-screen flex-col">
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 max-w-5xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -26,45 +26,47 @@ export default function PricingPage() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
+            <div className="grid gap-6 py-12 lg:grid-cols-3">
               <Card>
-                <CardHeader>
-                  <CardTitle>Basic</CardTitle>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold">₱499</span>
-                    <span className="text-muted-foreground">/month</span>
-                  </div>
-                  <CardDescription>
-                    Perfect for small businesses just getting started.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>Track 1 business</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>Basic deadline reminders</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>Standard checklists</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>Access to requirements database</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>Email support</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full">Get Started</Button>
-                </CardFooter>
+                <div className="flex flex-col">
+                  <CardHeader>
+                    <CardTitle>Basic</CardTitle>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-bold">₱499</span>
+                      <span className="text-muted-foreground">/month</span>
+                    </div>
+                    <CardDescription>
+                      Perfect for small businesses just getting started.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span>Track 1 business</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span>Basic deadline reminders</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span>Standard checklists</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span>Access to requirements database</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span>Email support</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full">Get Started</Button>
+                  </CardFooter>
+                </div>
               </Card>
               <Card className="border-2 border-primary">
                 <CardHeader>

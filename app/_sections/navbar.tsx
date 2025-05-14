@@ -33,10 +33,12 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
-        <ComplianceLogo />
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center">
+        <div className="flex-1">
+          <ComplianceLogo />
+        </div>
 
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-8 justify-center flex-1">
           <Link
             href="/"
             className={`text-sm font-medium ${
@@ -94,7 +96,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-1 justify-end">
           {isLoggedIn ? (
             <>
               <Button variant="outline" size="sm" className="hidden md:flex">
