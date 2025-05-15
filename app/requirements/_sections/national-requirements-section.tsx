@@ -46,11 +46,13 @@ export function NationalRequirementsSection() {
         </h4>
         <ul className="list-none pl-5 text-sm space-y-2">
           {requirements.map((item, index) => (
-            <li key={index} className="flex gap-2 items-start">
-              <span className="inline-block h-5 w-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center mt-0.5 font-bold">
-                {index + 1}
-              </span>
-              <span className="text-slate-600">{item}</span>
+            <li key={index} className="flex gap-3 items-start">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center">
+                <span className="text-xs font-bold text-indigo-700">
+                  {index + 1}
+                </span>
+              </div>
+              <span className="text-slate-600 pt-0.5">{item}</span>
             </li>
           ))}
         </ul>
@@ -254,11 +256,13 @@ export function NationalRequirementsSection() {
                       "Valid ID of the business owner/authorized representative",
                       "Employer Registration Form",
                     ].map((item, index) => (
-                      <li key={index} className="flex gap-2 items-start">
-                        <span className="inline-block h-5 w-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center mt-0.5 font-bold">
-                          {index + 1}
-                        </span>
-                        <span className="text-slate-600">{item}</span>
+                      <li key={index} className="flex gap-3 items-start">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center">
+                          <span className="text-xs font-bold text-indigo-700">
+                            {index + 1}
+                          </span>
+                        </div>
+                        <span className="text-slate-600 pt-0.5">{item}</span>
                       </li>
                     ))}
                   </ul>
