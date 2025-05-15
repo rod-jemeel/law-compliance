@@ -14,10 +14,12 @@ import { RootState } from "@/store";
 import { homeActions } from "../_redux/home-slice";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
+import { useRouter } from "next/navigation";
 
 export default function PenaltiesSection() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state: RootState) => state.homeState);
+  const router = useRouter();
 
   // Local state for form validation
   const [formErrors, setFormErrors] = useState({
@@ -66,12 +68,13 @@ export default function PenaltiesSection() {
   };
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+    <section className="w-full py-12 bg-gray-200/25 md:py-24 lg:py-32 bg-muted/50">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-12">
           <div className="flex flex-col justify-center space-y-4 w-full lg:max-w-[50%]">
+            {" "}
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-red-700">
                 Avoid Costly Penalties
               </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -81,41 +84,49 @@ export default function PenaltiesSection() {
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <ClipboardCheck className="h-5 w-5 text-primary" />
+                <ClipboardCheck className="text-red-500 h-5 w-5 text-primary" />
                 <p className="font-medium">
                   25% surcharge on unpaid local business taxes
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <ClipboardCheck className="h-5 w-5 text-primary" />
+                <ClipboardCheck className="text-red-500 h-5 w-5 text-primary" />
                 <p className="font-medium">
                   2% monthly interest on outstanding amounts
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <ClipboardCheck className="h-5 w-5 text-primary" />
+                <ClipboardCheck className="text-red-500 h-5 w-5 text-primary" />
                 <p className="font-medium">
                   PHP 5,000 - 20,000 fines for operating without BIR
                   registration
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <ClipboardCheck className="h-5 w-5 text-primary" />
+                <ClipboardCheck className="text-red-500 h-5 w-5 text-primary" />
                 <p className="font-medium">
                   Potential business closure and reputational damage
                 </p>
               </div>
             </div>{" "}
             <div>
-              <Button>Start Tracking Now</Button>
+              <Button
+                onClick={() => router.push("/auth/signup")}
+                className="bg-red-600 hover:bg-red-700 text-white"
+              >
+                Start Tracking Now
+              </Button>
             </div>
           </div>
           <div className="flex flex-col justify-center space-y-4 w-full lg:max-w-[45%]">
-            <Card>
+            {" "}
+            <Card className="bg-red-50 border-red-300 shadow-md">
               {" "}
               <CardHeader>
-                <CardTitle>Penalty Calculator</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-red-600">
+                  Penalty Calculator
+                </CardTitle>
+                <CardDescription className="text-red-800">
                   Estimate potential penalties for late renewal based on
                   Philippine local government regulations
                 </CardDescription>
@@ -164,38 +175,43 @@ export default function PenaltiesSection() {
                         Please enter a valid number of months (0 or more)
                       </p>
                     )}
-                  </div>
-                  <Button type="submit" className="w-full">
+                  </div>{" "}
+                  <Button
+                    type="submit"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white"
+                  >
                     Calculate Penalty
                   </Button>
                 </form>
               </CardContent>
               <CardFooter className="flex flex-col items-start space-y-4">
+                {" "}
                 <div className="space-y-1 w-full">
-                  <p className="text-sm font-medium">Estimated Penalty:</p>{" "}
-                  <p className="text-2xl font-bold">
+                  <p className="text-sm font-medium text-red-700">
+                    Estimated Penalty:
+                  </p>{" "}
+                  <p className="text-2xl font-bold text-red-600">
                     {formatCurrency(state.penaltyCalculator.calculatedPenalty)}
                   </p>
                 </div>
-
                 {state.penaltyCalculator.calculatedPenalty > 0 && (
-                  <div className="space-y-2 w-full bg-muted p-3 rounded-md">
-                    <p className="text-sm font-medium">Breakdown:</p>
+                  <div className="space-y-2 w-full bg-red-100 p-3 rounded-md border border-red-200">
+                    <p className="text-sm font-medium text-red-700">
+                      Breakdown:
+                    </p>
                     <div className="grid grid-cols-2 gap-2 text-sm">
-                      <p className="text-muted-foreground">25% Surcharge:</p>{" "}
-                      <p className="font-medium">
+                      <p className="text-red-600">25% Surcharge:</p>{" "}
+                      <p className="font-medium text-red-700">
                         {formatCurrency(
                           state.penaltyCalculator.surchargeAmount
                         )}
                       </p>
-                      <p className="text-muted-foreground">
-                        2% Monthly Interest:
-                      </p>{" "}
-                      <p className="font-medium">
+                      <p className="text-red-600">2% Monthly Interest:</p>{" "}
+                      <p className="font-medium text-red-700">
                         {formatCurrency(state.penaltyCalculator.interestAmount)}
                       </p>
                     </div>{" "}
-                    <p className="text-xs mt-2 text-muted-foreground">
+                    <p className="text-xs mt-2 text-red-500">
                       Based on the Local Government Code of the Philippines
                       which generally applies a 25% surcharge and 2% monthly
                       interest on late business permit renewals across all

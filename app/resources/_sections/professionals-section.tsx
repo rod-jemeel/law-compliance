@@ -9,24 +9,30 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Briefcase, Calculator, Scale } from "lucide-react";
 
 export function ProfessionalsSection() {
   return (
-    <Card className="mb-8">
+    <Card className="mb-8 border-t-2 border-t-amber-500 border-amber-200 shadow-sm bg-amber-50/30">
       <CardHeader>
-        <CardTitle>Need Professional Assistance?</CardTitle>
+        <CardTitle className="text-amber-700">
+          Need Professional Assistance?
+        </CardTitle>
         <CardDescription>
           Connect with business registration consultants and service providers
-          in Dumaguete City
+          in City / Municipality
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
+          <Card className="border border-amber-200 hover:shadow bg-white">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">
-                Business Registration Consultants
-              </CardTitle>
+              <div className="flex items-center gap-2">
+                <Briefcase className="h-5 w-5 text-amber-600" />
+                <CardTitle className="text-lg text-amber-700">
+                  Business Registration Consultants
+                </CardTitle>
+              </div>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -35,14 +41,20 @@ export function ProfessionalsSection() {
               </p>
             </CardContent>
             <CardFooter>
-              <Button variant="outline" className="w-full">
+              <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white">
                 View Directory
               </Button>
             </CardFooter>
           </Card>
-          <Card>
+
+          <Card className="border border-amber-200 hover:shadow bg-white">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Accounting Firms</CardTitle>
+              <div className="flex items-center gap-2">
+                <Calculator className="h-5 w-5 text-amber-600" />
+                <CardTitle className="text-lg text-amber-700">
+                  Accounting Firms
+                </CardTitle>
+              </div>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -51,14 +63,20 @@ export function ProfessionalsSection() {
               </p>
             </CardContent>
             <CardFooter>
-              <Button variant="outline" className="w-full">
+              <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white">
                 View Directory
               </Button>
             </CardFooter>
           </Card>
-          <Card>
+
+          <Card className="border border-amber-200 hover:shadow bg-white">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Legal Services</CardTitle>
+              <div className="flex items-center gap-2">
+                <Scale className="h-5 w-5 text-amber-600" />
+                <CardTitle className="text-lg text-amber-700">
+                  Legal Services
+                </CardTitle>
+              </div>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -67,7 +85,7 @@ export function ProfessionalsSection() {
               </p>
             </CardContent>
             <CardFooter>
-              <Button variant="outline" className="w-full">
+              <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white">
                 View Directory
               </Button>
             </CardFooter>

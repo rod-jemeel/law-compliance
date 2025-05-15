@@ -20,7 +20,7 @@ export function ContactInfoSection() {
                 <br />
                 Suite 1201, One Dumaguete Place
                 <br />
-                Rizal Boulevard, Dumaguete City 6200
+                Rizal Boulevard, City / Municipality 6200
                 <br />
                 Negros Oriental, Philippines
               </p>

@@ -234,7 +234,7 @@ export default function PrivacyPage() {
               <br />
               Phone: (035) 422-8899
               <br />
-              Address: 123 Main Street, Dumaguete City, Negros Oriental,
+              Address: 123 Main Street, City / Municipality, Negros Oriental,
               Philippines
             </p>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CheckCircle2, Circle, AlertCircle } from "lucide-react";
+import { CheckCircle2, Circle, AlertCircle, Clock } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { loadChecklistState } from "../../../app/checklist/_redux/checklist-storage";
 import { useAppSelector, useAppDispatch } from "@/hooks/hooks";
@@ -25,10 +25,10 @@ export default function ComplianceChecklist() {
   const complianceItems = useAppSelector(
     (state: RootState) => state.dashboardState.complianceItems || {}
   );
-  const [loading, setLoading] = useState(true); // Load checklist data from local storage and sync with dashboard
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const loadAndSyncChecklist = async () => {
-      // Initialize empty compliance items if needed
       const safeComplianceItems: Record<string, BusinessComplianceItems> = {};
 
       if (businesses && businesses.length > 0) {
@@ -40,7 +40,6 @@ export default function ComplianceChecklist() {
           };
         });
 
-        // Initialize with empty structure if needed
         dispatch(
           dashboardActions.initializeComplianceItems({
             complianceItems: safeComplianceItems,
@@ -51,7 +50,6 @@ export default function ComplianceChecklist() {
       const checklistState = loadChecklistState();
 
       if (checklistState) {
-        // Sync the checklist state with dashboard
         dispatch(
           dashboardActions.syncComplianceWithChecklist({ checklistState })
         );
@@ -62,7 +60,6 @@ export default function ComplianceChecklist() {
 
     loadAndSyncChecklist();
 
-    // Set up a polling mechanism to check for changes in localStorage
     const checkForUpdates = setInterval(() => {
       const checklistState = loadChecklistState();
       if (checklistState) {
@@ -70,9 +67,8 @@ export default function ComplianceChecklist() {
           dashboardActions.syncComplianceWithChecklist({ checklistState })
         );
       }
-    }, 500); // Check every half second
+    }, 500);
 
-    // Clean up interval on component unmount
     return () => clearInterval(checkForUpdates);
   }, [dispatch, businesses]);
 
@@ -80,19 +76,37 @@ export default function ComplianceChecklist() {
     return <div className="py-8 text-center">Loading checklist data...</div>;
   }
 
-  // Get items to display for a business
   const getBusinessDisplayItems = (businessId: string): DisplayItem[] => {
-    // Make sure the specific business items exist
     if (!complianceItems[businessId]) return [];
 
     const businessComplianceItems = complianceItems[businessId];
 
-    // Safely combine all item types for the business, ensuring each array exists
     return [
       ...(businessComplianceItems.nationalItems || []),
       ...(businessComplianceItems.localItems || []),
       ...(businessComplianceItems.renewalItems || []),
     ];
+  };
+
+  const isCloseToExpiry = (dateString?: string): boolean => {
+    if (!dateString || dateString === "Perpetual") return false;
+
+    try {
+      const expiryDate = new Date(dateString);
+      const today = new Date();
+      const diffTime = expiryDate.getTime() - today.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays > 0 && diffDays <= 30;
+    } catch {
+      return false;
+    }
+  };
+
+  const getItemBackground = (item: DisplayItem): string => {
+    if (!item.checked) return "bg-gray-50";
+    if (isCloseToExpiry(item.validUntil))
+      return "bg-yellow-50 border-yellow-200";
+    return "bg-green-50 border-green-200";
   };
 
   return (
@@ -119,7 +133,9 @@ export default function ComplianceChecklist() {
                 businessItems.slice(0, 6).map((item: DisplayItem) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between p-3 border border-gray-300 rounded-lg"
+                    className={`flex items-center justify-between p-3 border rounded-lg ${getItemBackground(
+                      item
+                    )}`}
                   >
                     <div className="flex items-center gap-2">
                       {item.checked ? (
@@ -129,10 +145,15 @@ export default function ComplianceChecklist() {
                       )}
                       <span>{item.label}</span>
                     </div>
-                    <div className="text-sm text-muted-foreground">
-                      {item.validUntil
-                        ? `Valid until: ${item.validUntil}`
-                        : "Not submitted"}
+                    <div className="flex items-center gap-2">
+                      <div className="text-sm text-muted-foreground">
+                        {item.validUntil
+                          ? `Valid until: ${item.validUntil}`
+                          : "Not submitted"}
+                      </div>
+                      {item.validUntil && isCloseToExpiry(item.validUntil) && (
+                        <Clock className="h-4 w-4 text-yellow-500" />
+                      )}
                     </div>
                   </div>
                 ))

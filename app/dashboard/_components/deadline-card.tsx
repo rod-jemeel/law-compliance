@@ -29,6 +29,14 @@ export default function DeadlineCard({ deadline }: DeadlineCardProps) {
     if (daysLeft <= 30) return "text-amber-500";
     return "text-green-500";
   };
+
+  // Get background color based on urgency
+  const getUrgencyBackground = (daysLeft: number) => {
+    if (daysLeft <= 7) return "bg-red-50 border-red-200";
+    if (daysLeft <= 30) return "bg-amber-50 border-amber-200";
+    return "";
+  };
+
   const handleRemoveDeadline = () => {
     dispatch(dashboardActions.removeDeadline(deadline.id));
 
@@ -42,7 +50,9 @@ export default function DeadlineCard({ deadline }: DeadlineCardProps) {
   return (
     <>
       <div
-        className="flex items-center justify-between p-4 border border-gray-300 rounded-lg relative"
+        className={`flex items-center justify-between p-4 border border-gray-300 rounded-lg relative ${getUrgencyBackground(
+          deadline.daysLeft
+        )}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -54,7 +64,11 @@ export default function DeadlineCard({ deadline }: DeadlineCardProps) {
         </div>
         <div className="text-right">
           <p className="font-medium">{deadline.dueDate}</p>
-          <p className={`text-sm ${getUrgencyColor(deadline.daysLeft)}`}>
+          <p
+            className={`text-sm font-semibold ${getUrgencyColor(
+              deadline.daysLeft
+            )}`}
+          >
             {deadline.daysLeft} days left
           </p>
         </div>
@@ -92,7 +106,7 @@ export default function DeadlineCard({ deadline }: DeadlineCardProps) {
               </Tooltip>
             </TooltipProvider>
           </div>
-        )}{" "}
+        )}
       </div>
       <EditDeadlineModal
         isOpen={isEditModalOpen}

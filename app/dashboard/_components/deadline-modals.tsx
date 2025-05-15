@@ -16,6 +16,7 @@ import { dashboardActions } from "../_redux/dashboard-slice";
 import { Deadline } from "../_redux/dashboard-state";
 import { saveDashboardState } from "../_redux/dashboard-storage";
 import { RootState } from "@/store";
+import { Trash } from "lucide-react";
 
 interface DeadlineModalProps {
   isOpen: boolean;
@@ -400,11 +401,11 @@ export function ViewAllDeadlinesModal({
                         </p>
                       </div>
                       <Button
-                        variant="destructive"
+                        className="bg-red-500 hover:bg-red-600 text-white"
                         size="sm"
                         onClick={() => removeDeadline(deadline.id)}
                       >
-                        Remove
+                        <Trash className="h-4 w-4" />
                       </Button>
                     </div>
                   </div>

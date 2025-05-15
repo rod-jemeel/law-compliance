@@ -14,8 +14,18 @@ export default function RequirementsPage() {
 
           <Tabs defaultValue="national" className="w-full mb-8">
             <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="national">National Requirements</TabsTrigger>
-              <TabsTrigger value="local">Local Requirements</TabsTrigger>
+              <TabsTrigger
+                value="national"
+                className="data-[state=active]:bg-blue-100 data-[state=active]:text-blue-800"
+              >
+                National Requirements
+              </TabsTrigger>
+              <TabsTrigger
+                value="local"
+                className="data-[state=active]:bg-green-100 data-[state=active]:text-green-800"
+              >
+                Local Requirements
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="national">
               <NationalRequirementsSection />

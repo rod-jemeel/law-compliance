@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`}>
         <Providers>
           <Navbar />
-          <div className="py-4 min-h-screen w-full">
+          <div className=" min-h-screen w-full">
             <Motion>{children}</Motion>
           </div>
           <Footer />

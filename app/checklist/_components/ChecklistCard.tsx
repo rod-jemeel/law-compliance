@@ -25,14 +25,17 @@ export function ChecklistCard({
   saveButtonText = "Save Progress",
 }: ChecklistCardProps) {
   return (
-    <Card>
+    <Card className="border-blue-200 bg-white shadow-md">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-blue-700">{title}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent className="space-y-4">{children}</CardContent>
       <CardFooter>
-        <Button className="w-full" onClick={onSave}>
+        <Button
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          onClick={onSave}
+        >
           {saveButtonText}
         </Button>
       </CardFooter>

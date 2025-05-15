@@ -17,9 +17,24 @@ export default function ResourcesPage() {
 
           <Tabs defaultValue="official" className="w-full mb-8">
             <TabsList className="grid w-full grid-cols-3 mb-6">
-              <TabsTrigger value="official">Official Websites</TabsTrigger>
-              <TabsTrigger value="guides">Guides & Tutorials</TabsTrigger>
-              <TabsTrigger value="contact">Contact Information</TabsTrigger>
+              <TabsTrigger
+                value="official"
+                className="data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 data-[state=active]:border-b-2 data-[state=active]:border-blue-500"
+              >
+                Official Websites
+              </TabsTrigger>
+              <TabsTrigger
+                value="guides"
+                className="data-[state=active]:bg-green-50 data-[state=active]:text-green-700 data-[state=active]:border-b-2 data-[state=active]:border-green-500"
+              >
+                Guides & Tutorials
+              </TabsTrigger>
+              <TabsTrigger
+                value="contact"
+                className="data-[state=active]:bg-purple-50 data-[state=active]:text-purple-700 data-[state=active]:border-b-2 data-[state=active]:border-purple-500"
+              >
+                Contact Information
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="official">
               <OfficialWebsitesSection />

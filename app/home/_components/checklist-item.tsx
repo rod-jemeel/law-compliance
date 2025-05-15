@@ -13,7 +13,7 @@ export default function ChecklistItem({
 }: ChecklistItemProps) {
   return (
     <div className="flex items-start space-x-2">
-      <CheckCircle2 className="mt-0.5 h-5 w-5 text-primary" />
+      <CheckCircle2 className="mt-0.5 h-5 w-5 text-green-700 text-primary" />
       <div>
         <p className="font-medium">{title}</p>
         <p className="text-sm text-muted-foreground">{description}</p>

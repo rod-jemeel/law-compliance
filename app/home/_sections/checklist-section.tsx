@@ -11,20 +11,22 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ChecklistItem from "../_components/checklist-item";
+import { useRouter } from "next/navigation";
 
 export default function ChecklistSection() {
+  const router = useRouter();
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {" "}
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-blue-700">
               Comprehensive Checklists
             </h2>
-            <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className=" md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Everything you need to know about business registration and
-              renewal in Dumaguete City.
+              renewal in the Philippines.
             </p>
           </div>
         </div>{" "}
@@ -33,12 +35,15 @@ export default function ChecklistSection() {
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="new">New Registration</TabsTrigger>
               <TabsTrigger value="renewal">Annual Renewal</TabsTrigger>
-            </TabsList>
+            </TabsList>{" "}
             <TabsContent value="new" className="mt-6 space-y-4">
-              <Card>
+              {" "}
+              <Card className="border-blue-200 bg-white shadow-md">
                 <CardHeader>
-                  <CardTitle>National Level Requirements</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-blue-700">
+                    National Level Requirements
+                  </CardTitle>
+                  <CardDescription className="text-blue-600">
                     Complete these steps before proceeding to local registration
                   </CardDescription>
                 </CardHeader>
@@ -61,18 +66,22 @@ export default function ChecklistSection() {
                   />
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full">
+                  <Button
+                    onClick={() => router.push("/requirements")}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  >
                     View Complete Checklist
                   </Button>
                 </CardFooter>
-              </Card>
-              <Card>
+              </Card>{" "}
+              <Card className="border-blue-200 bg-white shadow-md">
                 <CardHeader>
-                  <CardTitle>
-                    Local Level Requirements (Dumaguete City)
+                  <CardTitle className="text-blue-700">
+                    Local Level Requirements (City / Municipality)
                   </CardTitle>
-                  <CardDescription>
-                    Steps to complete at the Dumaguete City government offices
+                  <CardDescription className="text-blue-600">
+                    Steps to complete at your City / Municipality government
+                    offices
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
@@ -94,17 +103,23 @@ export default function ChecklistSection() {
                   />
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full">
+                  <Button
+                    onClick={() => router.push("/requirements")}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  >
                     View Complete Checklist
                   </Button>
                 </CardFooter>
               </Card>
             </TabsContent>
             <TabsContent value="renewal" className="mt-6 space-y-4">
-              <Card>
+              {" "}
+              <Card className="border-blue-200 bg-white shadow-md">
                 <CardHeader>
-                  <CardTitle>Annual Renewal Requirements</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-blue-700">
+                    Annual Renewal Requirements
+                  </CardTitle>
+                  <CardDescription className="text-blue-600">
                     Complete these steps before January 20th each year
                   </CardDescription>
                 </CardHeader>
@@ -127,15 +142,20 @@ export default function ChecklistSection() {
                   />
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full">
+                  <Button
+                    onClick={() => router.push("/requirements")}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  >
                     View Complete Checklist
                   </Button>
                 </CardFooter>
-              </Card>
-              <Card>
+              </Card>{" "}
+              <Card className="border-blue-200 bg-white shadow-md">
                 <CardHeader>
-                  <CardTitle>Required Documents</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-blue-700">
+                    Required Documents
+                  </CardTitle>
+                  <CardDescription className="text-blue-600">
                     Documents to prepare for annual renewal
                   </CardDescription>
                 </CardHeader>
@@ -158,7 +178,10 @@ export default function ChecklistSection() {
                   />
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full">
+                  <Button
+                    onClick={() => router.push("/requirements")}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  >
                     View Complete Document List
                   </Button>
                 </CardFooter>

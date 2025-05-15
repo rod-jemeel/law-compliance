@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import HeroSection from "./_sections/hero-section";
 import FeaturesSection from "./_sections/features-section";
 import ChecklistSection from "./_sections/checklist-section";
-import DeadlinesSection from "./_sections/deadlines-section";
 import PenaltiesSection from "./_sections/penalties-section";
 import CTASection from "./_sections/cta-section";
 
@@ -26,7 +25,7 @@ export default function Home() {
     return (
       <div className="flex min-h-screen flex-col">
         <main className="flex-1">
-          <div className="bg-primary/5 py-12 px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-primary/5 bg-gray-200/25 py-12 px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-3xl font-bold mb-4">Welcome Back!</h1>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               You&apos;re logged in. You can continue exploring our features or
@@ -39,7 +38,6 @@ export default function Home() {
           <HeroSection />
           <FeaturesSection />
           <ChecklistSection />
-          <DeadlinesSection />
           <PenaltiesSection />
           <CTASection />
         </main>
@@ -54,7 +52,6 @@ export default function Home() {
         <HeroSection />
         <FeaturesSection />
         <ChecklistSection />
-        <DeadlinesSection />
         <PenaltiesSection />
         <CTASection />
       </main>

@@ -26,12 +26,18 @@ export function ChecklistItem({
       <div className="grid gap-1.5 leading-none">
         <label
           htmlFor={id}
-          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${
+            checked ? "line-through text-green-600" : ""
+          }`}
         >
           {label}
         </label>
         {description && (
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p
+            className={`text-xs italic font-extralight text-muted-foreground `}
+          >
+            {description}
+          </p>
         )}
       </div>
     </div>

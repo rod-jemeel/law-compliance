@@ -20,11 +20,13 @@ import {
 export function GuidesSection() {
   return (
     <div className="grid gap-6 md:grid-cols-2">
-      <Card>
+      <Card className="border-t-2 border-t-green-500 border-green-200 shadow-sm hover:shadow transition-all bg-green-50/30">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-primary" />
-            <CardTitle>Business Registration Guide</CardTitle>
+            <BookOpen className="h-5 w-5 text-green-600" />
+            <CardTitle className="text-green-700">
+              Business Registration Guide
+            </CardTitle>
           </div>
           <CardDescription>
             Step-by-step guide for new businesses
@@ -33,22 +35,25 @@ export function GuidesSection() {
         <CardContent>
           <p className="text-sm text-muted-foreground">
             Comprehensive guide covering all aspects of registering a new
-            business in Dumaguete City, from national registrations to local
-            permits.
+            business in City / Municipality, from national registrations to
+            local permits.
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full">
+          <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
             <FileText className="mr-2 h-4 w-4" />
             Download PDF
           </Button>
         </CardFooter>
       </Card>
-      <Card>
+
+      <Card className="border-t-2 border-t-green-500 border-green-200 shadow-sm hover:shadow transition-all bg-green-50/30">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-primary" />
-            <CardTitle>Business Permit Renewal Guide</CardTitle>
+            <BookOpen className="h-5 w-5 text-green-600" />
+            <CardTitle className="text-green-700">
+              Business Permit Renewal Guide
+            </CardTitle>
           </div>
           <CardDescription>Annual renewal process explained</CardDescription>
         </CardHeader>
@@ -60,17 +65,18 @@ export function GuidesSection() {
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full">
+          <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
             <FileText className="mr-2 h-4 w-4" />
             Download PDF
           </Button>
         </CardFooter>
       </Card>
-      <Card>
+
+      <Card className="border-t-2 border-t-green-500 border-green-200 shadow-sm hover:shadow transition-all bg-green-50/30">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <GraduationCap className="h-5 w-5 text-primary" />
-            <CardTitle>Video Tutorials</CardTitle>
+            <GraduationCap className="h-5 w-5 text-green-600" />
+            <CardTitle className="text-green-700">Video Tutorials</CardTitle>
           </div>
           <CardDescription>
             Visual guides for business compliance
@@ -84,36 +90,41 @@ export function GuidesSection() {
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full">
+          <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
             View Tutorials
           </Button>
         </CardFooter>
       </Card>
-      <Card>
+
+      <Card className="border-t-2 border-t-green-500 border-green-200 shadow-sm hover:shadow transition-all bg-green-50/30">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <HelpCircle className="h-5 w-5 text-primary" />
-            <CardTitle>Frequently Asked Questions</CardTitle>
+            <HelpCircle className="h-5 w-5 text-green-600" />
+            <CardTitle className="text-green-700">
+              Frequently Asked Questions
+            </CardTitle>
           </div>
           <CardDescription>Common questions and answers</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
             Answers to common questions about business registration, renewal,
-            requirements, deadlines, and compliance issues in Dumaguete City.
+            requirements, deadlines, and compliance issues in City /
+            Municipality.
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full">
+          <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
             View FAQs
           </Button>
         </CardFooter>
       </Card>
-      <Card>
+
+      <Card className="border-t-2 border-t-green-500 border-green-200 shadow-sm hover:shadow transition-all bg-green-50/30">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <FileText className="h-5 w-5 text-primary" />
-            <CardTitle>Document Templates</CardTitle>
+            <FileText className="h-5 w-5 text-green-600" />
+            <CardTitle className="text-green-700">Document Templates</CardTitle>
           </div>
           <CardDescription>Ready-to-use forms and templates</CardDescription>
         </CardHeader>
@@ -124,27 +135,30 @@ export function GuidesSection() {
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full">
+          <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
             Access Templates
           </Button>
         </CardFooter>
       </Card>
-      <Card>
+
+      <Card className="border-t-2 border-t-green-500 border-green-200 shadow-sm hover:shadow transition-all bg-green-50/30">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <LifeBuoy className="h-5 w-5 text-primary" />
-            <CardTitle>Compliance Calendar</CardTitle>
+            <LifeBuoy className="h-5 w-5 text-green-600" />
+            <CardTitle className="text-green-700">
+              Compliance Calendar
+            </CardTitle>
           </div>
           <CardDescription>Important dates and deadlines</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
             Calendar of important regulatory deadlines, filing dates, and
-            renewal periods for businesses operating in Dumaguete City.
+            renewal periods for businesses operating in City / Municipality.
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full">
+          <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
             View Calendar
           </Button>
         </CardFooter>

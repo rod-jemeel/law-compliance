@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function FeaturesSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+    <section className="w-full bg-gray-200/25 py-12 md:py-24 lg:py-32 bg-background">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {" "}
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -15,7 +15,7 @@ export default function FeaturesSection() {
             <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Securing and maintaining valid business permits is not just a
               procedural requirement—it&apos;s essential for legal operation in
-              Dumaguete City.
+              the Philippines.
             </p>
           </div>
         </div>{" "}
@@ -50,7 +50,7 @@ export default function FeaturesSection() {
             <CardContent>
               <p className="text-muted-foreground">
                 Access comprehensive checklists and step-by-step guides tailored
-                specifically for Dumaguete City businesses.
+                specifically for local businesses.
               </p>
             </CardContent>
           </Card>

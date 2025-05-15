@@ -63,7 +63,7 @@ const createInitialState = (): ChecklistState => {
       taxClearance: createItem(
         "local-2",
         "Secure a Tax Clearance",
-        "From the Dumaguete City Treasurer's Office"
+        "From the City / Municipality Treasurer's Office"
       ),
       environmentalPermit: createItem(
         "local-3",
@@ -105,7 +105,7 @@ const createInitialState = (): ChecklistState => {
       taxClearanceRenewal: createItem(
         "renewal-2",
         "Obtain a Tax Clearance",
-        "From the Dumaguete City Treasurer's Office for the renewal period"
+        "From the City / Municipality Treasurer's Office for the renewal period"
       ),
       environmentalPermitRenewal: createItem(
         "renewal-3",

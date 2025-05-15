@@ -15,7 +15,7 @@ export default function HeroSection() {
               </h1>
               <p className="text-muted-foreground md:text-xl">
                 Stay compliant with all business registration and renewal
-                requirements in Dumaguete City with our easy-to-use tracking
+                requirements in the Philippines with our easy-to-use tracking
                 system.
               </p>
             </div>
@@ -28,50 +28,54 @@ export default function HeroSection() {
                 Learn More
               </Button>{" "}
             </div>
-          </div>
-          <div className="flex w-full lg:w-[40%] flex-col justify-center space-y-4 rounded-xl border border-gray-300 bg-background p-4 shadow-lg sm:p-6 lg:p-8">
+          </div>{" "}
+          <div className="flex w-full lg:w-[40%] flex-col justify-center space-y-4 rounded-xl border border-red-300 bg-red-50 p-4 shadow-lg sm:p-6 lg:p-8">
             <div className="flex items-center gap-2">
-              <Calendar className="h-6 w-6 text-primary" />
-              <h3 className="text-xl font-bold">Upcoming Deadlines</h3>
+              <Calendar className="h-6 w-6 text-red-600" />
+              <h3 className="text-xl font-bold text-red-700">
+                Upcoming Deadlines
+              </h3>
             </div>{" "}
             <div className="space-y-3">
               {" "}
-              <div className="flex items-center justify-between rounded-lg border border-gray-300 p-3">
+              <div className="flex items-center justify-between rounded-lg border border-red-200 bg-white p-3 hover:border-red-400 transition-colors">
                 <div className="space-y-0.5">
                   <h4 className="font-medium">Barangay Clearance Renewal</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-red-600">
                     Before January 20, 2026
                   </p>
                 </div>
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 bg-primary text-primary-foreground">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-red-600 text-white">
                   <span className="text-xs font-bold">67</span>{" "}
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-lg border border-gray-300 p-3">
+              <div className="flex items-center justify-between rounded-lg border border-red-200 bg-white p-3 hover:border-red-400 transition-colors">
                 <div className="space-y-0.5">
                   <h4 className="font-medium">Mayor&apos;s Permit Renewal</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-red-600">
                     Before January 20, 2026
                   </p>
                 </div>{" "}
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 bg-primary text-primary-foreground">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-red-600 text-white">
                   <span className="text-xs font-bold">67</span>
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded-lg border border-gray-300 p-3">
+              <div className="flex items-center justify-between rounded-lg border border-red-200 bg-white p-3 hover:border-red-400 transition-colors">
                 <div className="space-y-0.5">
                   <h4 className="font-medium">BIR Annual Registration</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-red-600">
                     {" "}
                     Before January 31, 2026
                   </p>
                 </div>
-                <div className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 bg-primary text-primary-foreground">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-red-600 text-white">
                   <span className="text-xs font-bold">78</span>
                 </div>
               </div>
             </div>
-            <Button className="w-full">View All Deadlines</Button>
+            <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
+              View All Deadlines
+            </Button>
           </div>
         </div>
       </div>

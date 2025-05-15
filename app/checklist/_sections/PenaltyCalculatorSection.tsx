@@ -13,10 +13,10 @@ export function PenaltyCalculatorSection() {
   const { penaltyCalculator } = state;
 
   return (
-    <Card className="max-w-4xl mx-auto">
+    <Card className="max-w-4xl mx-auto border-red-300 bg-red-50 shadow-md">
       <CardHeader>
-        <CardTitle>Penalty Calculator</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-red-600">Penalty Calculator</CardTitle>
+        <CardDescription className="text-red-800">
           Estimate potential penalties for late renewal or registration
         </CardDescription>
       </CardHeader>

@@ -20,8 +20,8 @@ export function LocalRequirementsSection() {
 
   return (
     <ChecklistCard
-      title="Local Level Requirements (Dumaguete City)"
-      description="Steps to complete at the Dumaguete City government offices"
+      title="Local Level Requirements (City / Municipality)"
+      description="Steps to complete at the City / Municipality government offices"
       onSave={handleSave}
     >
       <ChecklistItem
