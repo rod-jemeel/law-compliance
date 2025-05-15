@@ -15,7 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Calendar, CheckCircle, ClipboardList, MapPin } from "lucide-react";
+import { Calendar, CheckCircle, MapPin } from "lucide-react";
 
 export function LocalRequirementsSection() {
   // Helper function to render requirement content consistently
@@ -27,13 +27,13 @@ export function LocalRequirementsSection() {
     websiteUrl?: string,
     websiteName?: string
   ) => (
-    <div className="space-y-6  p-4 rounded-md border border-green-100">
-      <div className="bg-white p-3 rounded shadow-sm border-l-4 border-l-green-500">
+    <div className="space-y-6 p-4 rounded-md border border-teal-100 bg-teal-50/30">
+      <div className="bg-white p-3 rounded shadow-sm border-l-4 border-l-teal-500">
         <h4 className="font-semibold text-gray-700 flex items-center gap-2 mb-1">
-          <span className="text-green-600">Required For:</span>
+          <span className="text-teal-600">Required For:</span>
         </h4>
         <p className="text-sm">
-          <span className="inline-block bg-green-100 text-green-800 rounded-full px-3 py-1 font-medium">
+          <span className="inline-block bg-teal-100 text-teal-800 rounded-full px-3 py-1 font-medium">
             {requiredFor}
           </span>
         </p>
@@ -41,16 +41,16 @@ export function LocalRequirementsSection() {
 
       <div className="bg-white p-3 rounded shadow-sm">
         <h4 className="font-semibold text-gray-700 flex items-center gap-2 mb-2">
-          <CheckCircle className="h-4 w-4 text-green-600" />
+          <CheckCircle className="h-4 w-4 text-teal-600" />
           Requirements:
         </h4>
         <ul className="list-none pl-5 text-sm space-y-2">
           {requirements.map((item, index) => (
             <li key={index} className="flex gap-2 items-start">
-              <span className="inline-block h-5 w-5 rounded-full bg-green-100 text-green-700 text-xs flex items-center justify-center mt-0.5 font-bold">
+              <span className="inline-block h-5 w-5 rounded-full bg-teal-100 text-teal-700 text-xs flex items-center justify-center mt-0.5 font-bold">
                 {index + 1}
               </span>
-              <span>{item}</span>
+              <span className="text-slate-600">{item}</span>
             </li>
           ))}
         </ul>
@@ -67,18 +67,22 @@ export function LocalRequirementsSection() {
           </p>
         </div>
 
-        <div className="bg-white p-3 rounded shadow-sm flex-1 border-l-4 border-l-green-500">
+        <div className="bg-white p-3 rounded shadow-sm flex-1 border-l-4 border-l-teal-500">
           <h4 className="font-semibold text-gray-700 flex items-center gap-2 mb-1">
-            <MapPin className="h-4 w-4 text-green-600" />
+            <MapPin className="h-4 w-4 text-teal-600" />
             Where to Apply:
           </h4>
-          <p className="text-sm">{whereToApply}</p>
+          <p className="text-sm text-slate-600">{whereToApply}</p>
         </div>
       </div>
 
       {websiteUrl && (
         <div className="pt-2">
-          <Button className="bg-green-600 hover:bg-green-700" size="sm" asChild>
+          <Button
+            className="bg-teal-600 hover:bg-teal-700 text-white shadow-sm"
+            size="sm"
+            asChild
+          >
             <Link href={websiteUrl} target="_blank">
               Visit {websiteName || "Website"}
             </Link>
@@ -89,18 +93,20 @@ export function LocalRequirementsSection() {
   );
 
   return (
-    <Card className="mb-6">
-      <CardHeader className="bg-green-50 border-b border-green-100">
-        <CardTitle className="text-green-800 flex items-center gap-2">
-          <ClipboardList className="h-5 w-5" />
+    <Card className="mb-6 border-0 shadow-md hover:shadow-lg transition-all">
+      <CardHeader className="border-b border-slate-100">
+        <span className="text-xs font-semibold text-teal-600 uppercase tracking-wide">
+          Local Registration
+        </span>
+        <CardTitle className="text-xl text-gray-900">
           City / Municipality Local Requirements
         </CardTitle>
-        <CardDescription className="text-green-600">
+        <CardDescription className="text-slate-500">
           Requirements for obtaining business permits and licenses from City /
           Municipality government
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="font-medium hover:text-gray-700">

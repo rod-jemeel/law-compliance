@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,15 +16,20 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export function ContactFormSection() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Send Us a Message</CardTitle>
-        <CardDescription>
+    <Card className="border-0 shadow-md hover:shadow-lg transition-all">
+      <CardHeader className="border-b border-slate-100">
+        <span className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+          Reach Out
+        </span>
+        <CardTitle className="text-xl text-gray-900">
+          Send Us a Message
+        </CardTitle>
+        <CardDescription className="text-slate-500">
           Fill out the form below and we&apos;ll get back to you as soon as
           possible.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         <form className="space-y-6">
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-2">
@@ -72,11 +78,16 @@ export function ContactFormSection() {
               rows={5}
             />
           </div>
-          <Button type="submit" className="w-full">
-            Send Message
-          </Button>
         </form>
       </CardContent>
+      <CardFooter className="bg-slate-50 rounded-b-lg border-t border-slate-100">
+        <Button
+          type="submit"
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+        >
+          Send Message
+        </Button>
+      </CardFooter>
     </Card>
   );
 }

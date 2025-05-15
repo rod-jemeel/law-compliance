@@ -3,12 +3,15 @@ export default function PrivacyPage() {
     <div className="flex min-h-screen flex-col">
       <main className="flex-1 container py-12">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-          <p className="text-muted-foreground mb-6">
-            Last updated: May 15, 2025
-          </p>
+          <span className="text-indigo-600 font-semibold tracking-wide uppercase text-sm">
+            Legal Information
+          </span>
+          <h1 className="text-3xl font-bold text-gray-900 mt-2 mb-6">
+            Privacy Policy
+          </h1>
+          <p className="text-slate-500 mb-6">Last updated: May 15, 2025</p>
 
-          <div className="prose prose-slate max-w-none">
+          <div className="prose prose-slate max-w-none prose-headings:text-indigo-900 prose-a:text-indigo-600 prose-a:font-medium">
             <h2 className="text-xl font-semibold mt-8 mb-4">1. Introduction</h2>
             <p>
               PermitTracker (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)

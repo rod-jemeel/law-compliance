@@ -41,9 +41,9 @@ export default function Navbar() {
         <nav className="hidden md:flex gap-8 justify-center flex-1">
           <Link
             href="/"
-            className={`text-sm font-medium ${
-              pathname === "/home" ? "text-[#008DDE]" : "text-black"
-            } hover:text-primary`}
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/home" ? "text-indigo-600" : "text-gray-700"
+            } hover:text-indigo-600`}
           >
             Home
           </Link>
@@ -52,45 +52,48 @@ export default function Navbar() {
             <>
               <Link
                 href="/dashboard"
-                className={`text-sm font-medium ${
-                  pathname === "/dashboard" ? "text-[#008DDE]" : "text-black"
-                } hover:text-primary`}
+                className={`text-sm font-medium transition-colors ${
+                  pathname === "/dashboard"
+                    ? "text-indigo-600"
+                    : "text-gray-700"
+                } hover:text-indigo-600`}
               >
                 Dashboard
               </Link>
               <Link
                 href="/checklist"
-                className={`text-sm font-medium ${
-                  pathname === "/checklist" ? "text-[#008DDE]" : "text-black"
-                } hover:text-primary`}
+                className={`text-sm font-medium transition-colors ${
+                  pathname === "/checklist"
+                    ? "text-indigo-600"
+                    : "text-gray-700"
+                } hover:text-indigo-600`}
               >
                 Checklist
               </Link>
             </>
           ) : null}
 
-          {/* These links are always visible */}
           <Link
             href="/requirements"
-            className={`text-sm font-medium ${
-              pathname === "/requirements" ? "text-[#008DDE]" : "text-black"
-            } hover:text-primary`}
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/requirements" ? "text-indigo-600" : "text-gray-700"
+            } hover:text-indigo-600`}
           >
             Requirements
           </Link>
           <Link
             href="/resources"
-            className={`text-sm font-medium ${
-              pathname === "/resources" ? "text-[#008DDE]" : "text-black"
-            } hover:text-primary`}
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/resources" ? "text-indigo-600" : "text-gray-700"
+            } hover:text-indigo-600`}
           >
             Resources
           </Link>
           <Link
             href="/pricing"
-            className={`text-sm font-medium ${
-              pathname === "/pricing" ? "text-[#008DDE]" : "text-black"
-            } hover:text-primary`}
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/pricing" ? "text-indigo-600" : "text-gray-700"
+            } hover:text-indigo-600`}
           >
             Pricing
           </Link>
@@ -99,22 +102,42 @@ export default function Navbar() {
         <div className="flex items-center gap-4 flex-1 justify-end">
           {isLoggedIn ? (
             <>
-              <Button variant="outline" size="sm" className="hidden md:flex">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hidden md:flex border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800"
+              >
                 <Bell className="mr-2 h-4 w-4" />
                 Notifications
               </Button>
-              <Button variant="outline" size="sm" onClick={handleLogout}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleLogout}
+                className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800"
+              >
                 <LogOut className="mr-2 h-4 w-4" />
                 Logout
               </Button>
             </>
           ) : (
             <>
-              <Button variant="outline" size="sm" asChild>
-                <Link href="/auth/login">Login</Link>
+              <Button
+                onclick={() => router.push("/auth/signup")}
+                variant="outline"
+                size="sm"
+                asChild
+                className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800"
+              >
+                Login
               </Button>
-              <Button size="sm" asChild>
-                <Link href="/auth/signup">Sign Up</Link>
+              <Button
+                onClick={() => router.push("/auth/signup")}
+                size="sm"
+                asChild
+                className="bg-indigo-600 hover:bg-indigo-700 text-white"
+              >
+                Sign Up
               </Button>
             </>
           )}

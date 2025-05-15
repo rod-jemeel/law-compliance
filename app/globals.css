@@ -12,19 +12,77 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
 
-    /* Add other light mode variables here */
+    /* Primary colors - indigo-based palette */
+    --primary: 226 82% 43%; /* indigo-600 */
+    --primary-light: 226 100% 94%; /* indigo-50 */
+    --primary-dark: 226 68% 36%; /* indigo-700 */
+
+    /* Accent colors */
+    --accent-blue: 213 94% 48%;
+    --accent-green: 142 76% 36%;
+    --accent-red: 0 84% 60%;
+    --accent-amber: 38 92% 50%;
+    --accent-purple: 271 91% 65%;
+    --accent-teal: 173 80% 40%;
+
+    /* Neutrals */
+    --neutral-50: 0 0% 98%;
+    --neutral-100: 0 0% 96%;
+    --neutral-200: 0 0% 90%;
+    --neutral-300: 0 0% 83%;
+    --neutral-400: 0 0% 64%;
+    --neutral-500: 0 0% 45%;
+    --neutral-600: 0 0% 32%;
+    --neutral-700: 0 0% 25%;
+    --neutral-800: 0 0% 15%;
+    --neutral-900: 0 0% 9%;
   }
 
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
 
-    /* Add other dark mode variables here */
+    /* Dark mode adjustments */
+    --primary: 226 70% 55%;
+    --primary-light: 226 40% 20%;
+    --primary-dark: 226 60% 45%;
   }
+}
+
+/* Color utility classes */
+.text-primary-color {
+  color: hsl(var(--primary));
+}
+.bg-primary-color {
+  background-color: hsl(var(--primary));
+}
+.border-primary-color {
+  border-color: hsl(var(--primary));
+}
+
+/* Card styles */
+.card-hover {
+  transition: all 0.2s ease-in-out;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Progress bar colors */
+.progress-green .bg-primary {
+  background-color: hsl(var(--accent-green));
+}
+.progress-yellow .bg-primary {
+  background-color: hsl(var(--accent-amber));
+}
+.progress-red .bg-primary {
+  background-color: hsl(var(--accent-red));
 }
 
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
 }

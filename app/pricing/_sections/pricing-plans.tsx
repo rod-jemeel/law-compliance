@@ -15,144 +15,197 @@ export function PricingPlans() {
   return (
     <div className="grid gap-6 py-12 lg:grid-cols-3">
       {/* Basic Plan - Neutral theme */}
-      <Card className="border border-gray-200 hover:border-gray-300 transition-all">
-        <CardHeader>
-          <CardTitle>Basic</CardTitle>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold">₱499</span>
-            <span className="text-muted-foreground">/month</span>
+      <Card className="border-0 shadow-md hover:shadow-lg transition-all flex flex-col">
+        <CardHeader className="pb-8">
+          <CardTitle className="text-gray-900">Basic</CardTitle>
+          <div className="flex items-baseline gap-1 mt-2">
+            <span className="text-3xl font-bold text-indigo-600">₱499</span>
+            <span className="text-slate-500">/month</span>
           </div>
-          <CardDescription>
+          <CardDescription className="mt-3 text-slate-500">
             Perfect for small businesses just getting started.
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-gray-500" />
-              <span>Track 1 business</span>
+        <CardContent className="flex-grow">
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Track 1 business</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-gray-500" />
-              <span>Basic deadline reminders</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Basic deadline reminders</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-gray-500" />
-              <span>Standard checklists</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Standard checklists</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-gray-500" />
-              <span>Access to requirements database</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">
+                Access to requirements database
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-gray-500" />
-              <span>Email support</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Email support</span>
             </li>
           </ul>
         </CardContent>
-        <CardFooter>
-          <Button variant="outline" className="w-full">
+        <CardFooter className="pt-6">
+          <Button
+            variant="outline"
+            className="w-full border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800"
+          >
             Get Started
           </Button>
         </CardFooter>
       </Card>
 
-      {/* Professional Plan - Blue theme (highlighted) */}
-      <Card className="border-2 border-blue-500 shadow-md hover:shadow-lg transition-all relative">
-        <div className="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
+      {/* Professional Plan - Indigo theme (highlighted) */}
+      <Card className="border-0 shadow-lg hover:shadow-xl transition-all relative flex flex-col bg-gradient-to-b from-indigo-50 to-white translate-y-[-8px]">
+        <div className="absolute top-0 right-0 bg-indigo-600 text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
           Most Popular
         </div>
-        <CardHeader className="bg-blue-50">
-          <CardTitle className="text-blue-700">Professional</CardTitle>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-blue-700">₱999</span>
-            <span className="text-blue-600">/month</span>
+        <CardHeader className="pb-8">
+          <CardTitle className="text-indigo-700">Professional</CardTitle>
+          <div className="flex items-baseline gap-1 mt-2">
+            <span className="text-3xl font-bold text-indigo-600">₱999</span>
+            <span className="text-indigo-500">/month</span>
           </div>
-          <CardDescription className="text-blue-600">
+          <CardDescription className="mt-3 text-indigo-500">
             Ideal for growing businesses with multiple permits.
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-blue-500" />
-              <span>Track up to 3 businesses</span>
+        <CardContent className="flex-grow">
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Track up to 3 businesses</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-blue-500" />
-              <span>Advanced deadline reminders (SMS + Email)</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">
+                Advanced deadline reminders (SMS + Email)
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-blue-500" />
-              <span>Custom checklists</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Custom checklists</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-blue-500" />
-              <span>Document storage (up to 100MB)</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">
+                Document storage (up to 100MB)
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-blue-500" />
-              <span>Priority email support</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Priority email support</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-blue-500" />
-              <span>Compliance analytics</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Compliance analytics</span>
             </li>
           </ul>
         </CardContent>
-        <CardFooter className="bg-blue-50">
-          <Button className="w-full bg-blue-600 hover:bg-blue-700">
+        <CardFooter className="pt-6">
+          <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-md">
             Get Started
           </Button>
         </CardFooter>
       </Card>
 
-      {/* Enterprise Plan - Premium purple theme */}
-      <Card className="border border-purple-200 hover:border-purple-300 transition-all">
-        <CardHeader>
-          <CardTitle className="text-purple-700">Enterprise</CardTitle>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-purple-700">₱2,499</span>
-            <span className="text-muted-foreground">/month</span>
+      {/* Enterprise Plan - Premium theme */}
+      <Card className="border-0 shadow-md hover:shadow-lg transition-all flex flex-col">
+        <CardHeader className="pb-8">
+          <CardTitle className="text-gray-900">Enterprise</CardTitle>
+          <div className="flex items-baseline gap-1 mt-2">
+            <span className="text-3xl font-bold text-indigo-600">₱2,499</span>
+            <span className="text-slate-500">/month</span>
           </div>
-          <CardDescription>
+          <CardDescription className="mt-3 text-slate-500">
             For larger businesses with complex compliance needs.
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-purple-500" />
-              <span>Unlimited businesses</span>
+        <CardContent className="flex-grow">
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Unlimited businesses</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-purple-500" />
-              <span>Advanced notifications & alerts</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">
+                Advanced notifications & alerts
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-purple-500" />
-              <span>Custom workflows & approval chains</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">
+                Custom workflows & approval chains
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-purple-500" />
-              <span>Document storage (up to 1GB)</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">
+                Document storage (up to 1GB)
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-purple-500" />
-              <span>Dedicated account manager</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">Dedicated account manager</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-purple-500" />
-              <span>API access</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">API access</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-purple-500" />
-              <span>Advanced compliance analytics & reporting</span>
+            <li className="flex items-center gap-3">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100">
+                <Check className="h-3.5 w-3.5 text-indigo-600" />
+              </div>
+              <span className="text-gray-700">
+                Advanced compliance analytics & reporting
+              </span>
             </li>
           </ul>
         </CardContent>
-        <CardFooter>
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+        <CardFooter className="pt-6">
+          <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
             Contact Sales
           </Button>
         </CardFooter>

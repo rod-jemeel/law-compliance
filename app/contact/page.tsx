@@ -6,7 +6,7 @@ import {
 
 export default function ContactPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <main className="flex-1">
         <div className="container py-12 max-w-5xl mx-auto">
           <ContactHeader />

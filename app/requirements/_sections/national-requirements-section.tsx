@@ -15,7 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Calendar, CheckCircle, ClipboardList, MapPin } from "lucide-react";
+import { Calendar, CheckCircle, MapPin } from "lucide-react";
 
 export function NationalRequirementsSection() {
   // Helper function to render requirement content consistently
@@ -27,13 +27,13 @@ export function NationalRequirementsSection() {
     websiteUrl?: string,
     websiteName?: string
   ) => (
-    <div className="space-y-6  p-4 rounded-md border border-blue-100">
-      <div className="bg-white p-3 rounded shadow-sm border-l-4 border-l-blue-500">
+    <div className="space-y-6 p-4 rounded-md border border-indigo-100 bg-indigo-50/30">
+      <div className="bg-white p-3 rounded shadow-sm border-l-4 border-l-indigo-500">
         <h4 className="font-semibold text-gray-700 flex items-center gap-2 mb-1">
-          <span className="text-blue-600">Required For:</span>
+          <span className="text-indigo-600">Required For:</span>
         </h4>
         <p className="text-sm">
-          <span className="inline-block bg-blue-100 text-blue-800 rounded-full px-3 py-1 font-medium">
+          <span className="inline-block bg-indigo-100 text-indigo-800 rounded-full px-3 py-1 font-medium">
             {requiredFor}
           </span>
         </p>
@@ -41,16 +41,16 @@ export function NationalRequirementsSection() {
 
       <div className="bg-white p-3 rounded shadow-sm">
         <h4 className="font-semibold text-gray-700 flex items-center gap-2 mb-2">
-          <CheckCircle className="h-4 w-4 text-blue-600" />
+          <CheckCircle className="h-4 w-4 text-indigo-600" />
           Requirements:
         </h4>
         <ul className="list-none pl-5 text-sm space-y-2">
           {requirements.map((item, index) => (
             <li key={index} className="flex gap-2 items-start">
-              <span className="inline-block h-5 w-5 rounded-full bg-blue-100 text-blue-700 text-xs flex items-center justify-center mt-0.5 font-bold">
+              <span className="inline-block h-5 w-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center mt-0.5 font-bold">
                 {index + 1}
               </span>
-              <span>{item}</span>
+              <span className="text-slate-600">{item}</span>
             </li>
           ))}
         </ul>
@@ -72,13 +72,17 @@ export function NationalRequirementsSection() {
             <MapPin className="h-4 w-4 text-green-600" />
             Where to Apply:
           </h4>
-          <p className="text-sm">{whereToApply}</p>
+          <p className="text-sm text-slate-600">{whereToApply}</p>
         </div>
       </div>
 
       {websiteUrl && (
         <div className="pt-2">
-          <Button className="bg-blue-600 hover:bg-blue-700" size="sm" asChild>
+          <Button
+            className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm"
+            size="sm"
+            asChild
+          >
             <Link href={websiteUrl} target="_blank">
               Visit {websiteName || "Website"}
             </Link>
@@ -89,18 +93,20 @@ export function NationalRequirementsSection() {
   );
 
   return (
-    <Card className="mb-6">
-      <CardHeader className="bg-blue-50 border-b border-blue-100">
-        <CardTitle className="text-blue-800 flex items-center gap-2">
-          <ClipboardList className="h-5 w-5" />
+    <Card className="mb-6 border-0 shadow-md hover:shadow-lg transition-all">
+      <CardHeader className="border-b border-slate-100">
+        <span className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+          National Registration
+        </span>
+        <CardTitle className="text-xl text-gray-900">
           National Level Registration Requirements
         </CardTitle>
-        <CardDescription className="text-blue-600">
+        <CardDescription className="text-slate-500">
           Requirements for registering your business with national government
           agencies
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="font-medium hover:text-gray-700">
@@ -222,13 +228,13 @@ export function NationalRequirementsSection() {
               PhilHealth and Pag-IBIG Registration
             </AccordionTrigger>
             <AccordionContent>
-              <div className="space-y-6 bg-blue-50/50 p-4 rounded-md border border-blue-100">
-                <div className="bg-white p-3 rounded shadow-sm border-l-4 border-l-blue-500">
+              <div className="space-y-6 bg-indigo-50/30 p-4 rounded-md border border-indigo-100">
+                <div className="bg-white p-3 rounded shadow-sm border-l-4 border-l-indigo-500">
                   <h4 className="font-semibold text-gray-700 flex items-center gap-2 mb-1">
-                    <span className="text-blue-600">Required For:</span>
+                    <span className="text-indigo-600">Required For:</span>
                   </h4>
                   <p className="text-sm">
-                    <span className="inline-block bg-blue-100 text-blue-800 rounded-full px-3 py-1 font-medium">
+                    <span className="inline-block bg-indigo-100 text-indigo-800 rounded-full px-3 py-1 font-medium">
                       All businesses with employees
                     </span>
                   </p>
@@ -236,7 +242,7 @@ export function NationalRequirementsSection() {
 
                 <div className="bg-white p-3 rounded shadow-sm">
                   <h4 className="font-semibold text-gray-700 flex items-center gap-2 mb-2">
-                    <CheckCircle className="h-4 w-4 text-blue-600" />
+                    <CheckCircle className="h-4 w-4 text-indigo-600" />
                     Requirements:
                   </h4>
                   <ul className="list-none pl-5 text-sm space-y-2">
@@ -249,10 +255,10 @@ export function NationalRequirementsSection() {
                       "Employer Registration Form",
                     ].map((item, index) => (
                       <li key={index} className="flex gap-2 items-start">
-                        <span className="inline-block h-5 w-5 rounded-full bg-blue-100 text-blue-700 text-xs flex items-center justify-center mt-0.5 font-bold">
+                        <span className="inline-block h-5 w-5 rounded-full bg-indigo-100 text-indigo-700 text-xs flex items-center justify-center mt-0.5 font-bold">
                           {index + 1}
                         </span>
-                        <span>{item}</span>
+                        <span className="text-slate-600">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -274,7 +280,7 @@ export function NationalRequirementsSection() {
                       <MapPin className="h-4 w-4 text-green-600" />
                       Where to Apply:
                     </h4>
-                    <p className="text-sm">
+                    <p className="text-sm text-slate-600">
                       PhilHealth and Pag-IBIG offices or online through their
                       respective websites
                     </p>
@@ -283,7 +289,7 @@ export function NationalRequirementsSection() {
 
                 <div className="pt-2 flex gap-2">
                   <Button
-                    className="bg-blue-600 hover:bg-blue-700"
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm"
                     size="sm"
                     asChild
                   >
@@ -292,7 +298,7 @@ export function NationalRequirementsSection() {
                     </Link>
                   </Button>
                   <Button
-                    className="bg-blue-600 hover:bg-blue-700"
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm"
                     size="sm"
                     asChild
                   >

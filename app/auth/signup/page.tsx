@@ -41,9 +41,9 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <div className="flex flex-1 items-center justify-center py-12">
-        <Card className="mx-auto max-w-md w-full">
+        <Card className="mx-auto max-w-md w-full border-0 shadow-lg">
           <CardHeader className="space-y-1">
             <div className="flex items-center justify-center mb-6">
               <ComplianceLogo />
@@ -51,7 +51,7 @@ export default function SignupPage() {
             <CardTitle className="text-2xl font-bold text-center">
               Create an account
             </CardTitle>
-            <CardDescription className="text-center">
+            <CardDescription className="text-center text-slate-500">
               Enter your information to create your BP Compliance account
             </CardDescription>
           </CardHeader>
@@ -120,16 +120,25 @@ export default function SignupPage() {
                     </Link>
                   </Label>
                 </div>
-                <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? "Creating Account..." : "Create Account"}
-                </Button>
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Creating Account..." : "Create Account"}
+                  </Button>
+                </div>
               </div>
             </form>
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
-            <div className="text-center text-sm">
+            <div className="text-center text-sm text-slate-600">
               Already have an account?{" "}
-              <Link href="/auth/login" className="text-primary hover:underline">
+              <Link
+                href="/auth/login"
+                className="text-indigo-600 hover:text-indigo-700 font-medium hover:underline"
+              >
                 Sign in
               </Link>
             </div>

@@ -22,20 +22,30 @@ export default function BusinessesSection() {
 
   return (
     <>
-      <Card>
-        <CardHeader>
-          <CardTitle>Your Businesses</CardTitle>
-          <CardDescription>Manage your registered businesses</CardDescription>
+      <Card className="border-0 shadow-md hover:shadow-lg transition-all">
+        <CardHeader className="border-b border-slate-100">
+          <span className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+            Manage
+          </span>
+          <CardTitle className="text-xl text-gray-900">
+            Your Businesses
+          </CardTitle>
+          <CardDescription className="text-slate-500">
+            Manage your registered businesses
+          </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pt-6">
           <div className="space-y-4">
             {state.businesses.map((business) => (
               <BusinessCard key={business.id} business={business} />
             ))}
           </div>
         </CardContent>
-        <CardFooter>
-          <Button className="w-full" onClick={() => setIsAddModalOpen(true)}>
+        <CardFooter className="bg-slate-50 rounded-b-lg border-t border-slate-100">
+          <Button
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+            onClick={() => setIsAddModalOpen(true)}
+          >
             <Plus className="mr-2 h-4 w-4" />
             Add Business
           </Button>

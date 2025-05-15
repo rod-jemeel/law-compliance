@@ -103,17 +103,20 @@ export default function ComplianceChecklist() {
   };
 
   const getItemBackground = (item: DisplayItem): string => {
-    if (!item.checked) return "bg-gray-50";
-    if (isCloseToExpiry(item.validUntil))
-      return "bg-yellow-50 border-yellow-200";
+    if (!item.checked) return "bg-slate-50";
+    if (isCloseToExpiry(item.validUntil)) return "bg-amber-50 border-amber-200";
     return "bg-green-50 border-green-200";
   };
 
   return (
     <Tabs defaultValue={businesses[0]?.id || "acme"}>
-      <TabsList className="mb-4">
+      <TabsList className="mb-4 bg-slate-100 p-1 rounded-lg">
         {businesses.map((business) => (
-          <TabsTrigger key={business.id} value={business.id}>
+          <TabsTrigger
+            key={business.id}
+            value={business.id}
+            className="rounded-md data-[state=active]:bg-white data-[state=active]:text-indigo-700 data-[state=active]:shadow-sm"
+          >
             {business.name}
           </TabsTrigger>
         ))}
@@ -126,42 +129,44 @@ export default function ComplianceChecklist() {
           <TabsContent
             key={business.id}
             value={business.id}
-            className="space-y-4"
+            className="space-y-4 mt-2"
           >
-            <div className="space-y-2">
+            <div className="space-y-3">
               {businessItems.length > 0 ? (
                 businessItems.slice(0, 6).map((item: DisplayItem) => (
                   <div
                     key={item.id}
-                    className={`flex items-center justify-between p-3 border rounded-lg ${getItemBackground(
+                    className={`flex items-center justify-between p-3 border rounded-lg hover:border-indigo-200 transition-colors ${getItemBackground(
                       item
                     )}`}
                   >
                     <div className="flex items-center gap-2">
                       {item.checked ? (
-                        <CheckCircle2 className="h-5 w-5 text-green-500" />
+                        <CheckCircle2 className="h-5 w-5 text-green-500 flex-shrink-0" />
                       ) : (
-                        <Circle className="h-5 w-5 text-gray-300" />
+                        <Circle className="h-5 w-5 text-slate-300 flex-shrink-0" />
                       )}
-                      <span>{item.label}</span>
+                      <span className="text-gray-800">{item.label}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-slate-500 flex-shrink-0">
                         {item.validUntil
                           ? `Valid until: ${item.validUntil}`
                           : "Not submitted"}
                       </div>
                       {item.validUntil && isCloseToExpiry(item.validUntil) && (
-                        <Clock className="h-4 w-4 text-yellow-500" />
+                        <Clock className="h-4 w-4 text-amber-500 flex-shrink-0" />
                       )}
                     </div>
                   </div>
                 ))
               ) : (
-                <div className="text-center py-4 text-muted-foreground">
-                  <AlertCircle className="mx-auto h-8 w-8 mb-2" />
-                  <p>No checklist items found for this business.</p>
-                  <p className="text-xs mt-1">
+                <div className="text-center py-8 bg-slate-50 rounded-lg border border-slate-200">
+                  <AlertCircle className="mx-auto h-8 w-8 mb-2 text-slate-400" />
+                  <p className="text-gray-700 font-medium">
+                    No checklist items found for this business.
+                  </p>
+                  <p className="text-sm text-slate-500 mt-1">
                     Visit the Checklist page to add requirements.
                   </p>
                 </div>

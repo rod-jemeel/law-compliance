@@ -55,13 +55,18 @@ export default function Dashboard() {
   // Show login prompt if not logged in
   if (!isLoggedIn) {
     return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-xl font-semibold mb-4">Login Required</h2>
-          <p className="text-muted-foreground mb-6">
+      <div className="flex min-h-screen items-center justify-center bg-slate-50">
+        <div className="text-center bg-white p-8 rounded-xl shadow-md max-w-md w-full">
+          <h2 className="text-xl font-bold mb-4 text-gray-900">
+            Login Required
+          </h2>
+          <p className="text-slate-500 mb-6">
             You need to be logged in to access the dashboard.
           </p>
-          <Button onClick={() => router.push("/auth/login")}>
+          <Button
+            onClick={() => router.push("/auth/login")}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white"
+          >
             Go to Login
           </Button>
         </div>
@@ -72,16 +77,19 @@ export default function Dashboard() {
   // Show loading state
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-xl font-semibold mb-4">Loading Dashboard...</h2>
+      <div className="flex min-h-screen items-center justify-center bg-slate-50">
+        <div className="text-center bg-white p-8 rounded-xl shadow-md">
+          <h2 className="text-xl font-bold mb-4 text-indigo-700">
+            Loading Dashboard...
+          </h2>
+          <div className="w-16 h-16 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mx-auto"></div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <main className="flex-1">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <DashboardHeader />
