@@ -12,7 +12,7 @@ export function RequirementsHeader() {
         </h1>
         <p className="text-muted-foreground">
           Comprehensive guide to all requirements for business registration and
-          renewal in Dumaguete City
+          renewal in your Local Government Unit (LGU).
         </p>
       </div>
       <div className="relative w-full md:w-[300px]">

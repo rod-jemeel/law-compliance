@@ -4,6 +4,8 @@ import {
   OfficialWebsitesSection,
   GuidesSection,
   ContactInfoSection,
+  ProfessionalsSection,
+  WorkshopsSection,
 } from "./_sections";
 
 export default function ResourcesPage() {
@@ -29,6 +31,9 @@ export default function ResourcesPage() {
               <ContactInfoSection />
             </TabsContent>
           </Tabs>
+
+          <ProfessionalsSection />
+          <WorkshopsSection />
         </div>
       </main>
     </div>

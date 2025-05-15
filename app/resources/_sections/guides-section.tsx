@@ -1,7 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { BookOpen, FileText, GraduationCap } from "lucide-react";
+import {
+  BookOpen,
+  FileText,
+  GraduationCap,
+  HelpCircle,
+  LifeBuoy,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -14,27 +19,28 @@ import {
 
 export function GuidesSection() {
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2">
       <Card>
         <CardHeader>
           <div className="flex items-center gap-2">
             <BookOpen className="h-5 w-5 text-primary" />
-            <CardTitle>New Business Registration Guide</CardTitle>
+            <CardTitle>Business Registration Guide</CardTitle>
           </div>
-          <CardDescription>Step-by-step guide</CardDescription>
+          <CardDescription>
+            Step-by-step guide for new businesses
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
-            Comprehensive guide to registering a new business in Dumaguete City,
-            including all required forms, documents, and agency procedures.
+            Comprehensive guide covering all aspects of registering a new
+            business in Dumaguete City, from national registrations to local
+            permits.
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full" asChild>
-            <Link href="/guides/new-business-registration">
-              <FileText className="mr-2 h-4 w-4" />
-              View Guide
-            </Link>
+          <Button variant="outline" className="w-full">
+            <FileText className="mr-2 h-4 w-4" />
+            Download PDF
           </Button>
         </CardFooter>
       </Card>
@@ -44,20 +50,19 @@ export function GuidesSection() {
             <BookOpen className="h-5 w-5 text-primary" />
             <CardTitle>Business Permit Renewal Guide</CardTitle>
           </div>
-          <CardDescription>Annual renewal process</CardDescription>
+          <CardDescription>Annual renewal process explained</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
-            Complete guide to the annual business permit renewal process,
-            including deadlines, requirements, and step-by-step procedures.
+            Detailed guide on the annual business permit renewal process,
+            including required documents, deadlines, and step-by-step
+            procedures.
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full" asChild>
-            <Link href="/guides/renewal-process">
-              <FileText className="mr-2 h-4 w-4" />
-              View Guide
-            </Link>
+          <Button variant="outline" className="w-full">
+            <FileText className="mr-2 h-4 w-4" />
+            Download PDF
           </Button>
         </CardFooter>
       </Card>
@@ -65,26 +70,85 @@ export function GuidesSection() {
         <CardHeader>
           <div className="flex items-center gap-2">
             <GraduationCap className="h-5 w-5 text-primary" />
-            <CardTitle>Tax Compliance Tutorial</CardTitle>
+            <CardTitle>Video Tutorials</CardTitle>
           </div>
-          <CardDescription>BIR requirements</CardDescription>
+          <CardDescription>
+            Visual guides for business compliance
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
-            Learn about tax filing requirements, deadlines, and best practices
-            for maintaining good standing with the Bureau of Internal Revenue.
+            Collection of video tutorials demonstrating how to navigate the
+            eBPLS portal, complete forms correctly, and understand compliance
+            requirements.
           </p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" className="w-full" asChild>
-            <Link href="/guides/tax-compliance">
-              <FileText className="mr-2 h-4 w-4" />
-              View Tutorial
-            </Link>
+          <Button variant="outline" className="w-full">
+            View Tutorials
           </Button>
         </CardFooter>
       </Card>
-      {/* Additional guides can be added here */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <HelpCircle className="h-5 w-5 text-primary" />
+            <CardTitle>Frequently Asked Questions</CardTitle>
+          </div>
+          <CardDescription>Common questions and answers</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Answers to common questions about business registration, renewal,
+            requirements, deadlines, and compliance issues in Dumaguete City.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full">
+            View FAQs
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <FileText className="h-5 w-5 text-primary" />
+            <CardTitle>Document Templates</CardTitle>
+          </div>
+          <CardDescription>Ready-to-use forms and templates</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Collection of fillable forms, affidavits, and document templates
+            needed for business registration and renewal processes.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full">
+            Access Templates
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <LifeBuoy className="h-5 w-5 text-primary" />
+            <CardTitle>Compliance Calendar</CardTitle>
+          </div>
+          <CardDescription>Important dates and deadlines</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Calendar of important regulatory deadlines, filing dates, and
+            renewal periods for businesses operating in Dumaguete City.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full">
+            View Calendar
+          </Button>
+        </CardFooter>
+      </Card>
     </div>
   );
 }

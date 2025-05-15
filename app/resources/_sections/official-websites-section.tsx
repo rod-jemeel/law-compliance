@@ -19,9 +19,9 @@ export function OfficialWebsitesSection() {
         <CardHeader>
           <div className="flex items-center gap-2">
             <Building2 className="h-5 w-5 text-primary" />
-            <CardTitle>Dumaguete City Government</CardTitle>
+            <CardTitle>Local Government Unit (LGU)</CardTitle>
           </div>
-          <CardDescription>Official website of Dumaguete City</CardDescription>
+          <CardDescription>Official local government website</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
@@ -36,7 +36,7 @@ export function OfficialWebsitesSection() {
               Visit Website
             </Link>
           </Button>
-        </CardFooter>
+        </CardFooter>{" "}
       </Card>
       <Card>
         <CardHeader>
@@ -84,7 +84,144 @@ export function OfficialWebsitesSection() {
           </Button>
         </CardFooter>
       </Card>
-      {/* Additional agencies can be added here */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-primary" />
+            <CardTitle>Securities and Exchange Commission</CardTitle>
+          </div>
+          <CardDescription>Official SEC website</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Register corporations and partnerships, file required reports, and
+            access information on SEC regulations and requirements.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full" asChild>
+            <Link href="https://www.sec.gov.ph" target="_blank">
+              <Link2 className="mr-2 h-4 w-4" />
+              Visit Website
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-primary" />
+            <CardTitle>Social Security System</CardTitle>
+          </div>
+          <CardDescription>Official SSS website</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Register employers and employees, manage contributions, and access
+            SSS services and benefits information.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full" asChild>
+            <Link href="https://www.sss.gov.ph" target="_blank">
+              <Link2 className="mr-2 h-4 w-4" />
+              Visit Website
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-primary" />
+            <CardTitle>PhilHealth</CardTitle>
+          </div>
+          <CardDescription>Official PhilHealth website</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Register employers and employees, manage health insurance
+            contributions, and access healthcare benefits information.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full" asChild>
+            <Link href="https://www.philhealth.gov.ph" target="_blank">
+              <Link2 className="mr-2 h-4 w-4" />
+              Visit Website
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-primary" />
+            <CardTitle>Pag-IBIG Fund</CardTitle>
+          </div>
+          <CardDescription>Official Pag-IBIG website</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Register employers and employees, manage housing fund contributions,
+            and access Pag-IBIG services and benefits.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full" asChild>
+            <Link href="https://www.pagibigfund.gov.ph" target="_blank">
+              <Link2 className="mr-2 h-4 w-4" />
+              Visit Website
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-primary" />
+            <CardTitle>Bureau of Fire Protection</CardTitle>
+          </div>
+          <CardDescription>Official BFP website</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Access information on fire safety requirements, inspection
+            procedures, and fire safety compliance for businesses.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full" asChild>
+            <Link href="https://bfp.gov.ph" target="_blank">
+              <Link2 className="mr-2 h-4 w-4" />
+              Visit Website
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <Building2 className="h-5 w-5 text-primary" />
+            <CardTitle>Cooperative Development Authority</CardTitle>
+          </div>
+          <CardDescription>Official CDA website</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Register cooperatives, access cooperative development resources, and
+            stay updated on cooperative regulations.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full" asChild>
+            <Link href="https://cda.gov.ph" target="_blank">
+              <Link2 className="mr-2 h-4 w-4" />
+              Visit Website
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
     </div>
   );
 }
