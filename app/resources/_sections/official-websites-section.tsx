@@ -1,6 +1,6 @@
 "use client";
 
-import { Building2, ExternalLink, Globe } from "lucide-react";
+import { ExternalLink, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
