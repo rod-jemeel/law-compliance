@@ -26,6 +26,15 @@ export default function Navbar() {
     router.push("/");
   };
 
+  // Handle login and signup navigation
+  const handleLogin = () => {
+    router.push("/auth/login");
+  };
+
+  const handleSignup = () => {
+    router.push("/auth/signup");
+  };
+
   // Return null if we're in auth pages
   if (isAuthPage) {
     return null;
@@ -40,7 +49,7 @@ export default function Navbar() {
 
         <nav className="hidden md:flex gap-8 justify-center flex-1">
           <Link
-            href="/"
+            href="/home"
             className={`text-sm font-medium transition-colors ${
               pathname === "/home" ? "text-indigo-600" : "text-gray-700"
             } hover:text-indigo-600`}
@@ -123,18 +132,16 @@ export default function Navbar() {
           ) : (
             <>
               <Button
-                onclick={() => router.push("/auth/signup")}
                 variant="outline"
                 size="sm"
-                asChild
+                onClick={handleLogin}
                 className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800"
               >
                 Login
               </Button>
               <Button
-                onClick={() => router.push("/auth/signup")}
                 size="sm"
-                asChild
+                onClick={handleSignup}
                 className="bg-indigo-600 hover:bg-indigo-700 text-white"
               >
                 Sign Up
